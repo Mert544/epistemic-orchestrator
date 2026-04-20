@@ -21,3 +21,4 @@ class FinalReport(BaseModel):
     known_claim_count: int = 0
     known_question_count: int = 0
     previous_run_count: int = 0
+    debug_stats: dict[str, int | float] = Field(default_factory=dict)
