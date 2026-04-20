@@ -19,4 +19,5 @@ def test_spam_guard_rejects_low_value_questions():
     parent = "Dependency hub claim: the files app/services/order_service.py appear central in the import graph and should be expanded first for dependency risk and architectural coupling."
 
     assert guard.is_low_value_question(parent, parent) is True
-    assert guard.is_low_value_question("What are the consequences if this claim is wrong?", parent) is False
+    assert guard.is_low_value_question("What are the consequences if this claim is wrong?", parent) is True
+    assert guard.is_low_value_question("What are the consequences if this claim is wrong: Dependency hub claim around app/services/order_service.py?", parent) is False
