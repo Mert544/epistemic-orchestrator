@@ -18,10 +18,11 @@ def main() -> None:
 
     target_root = Path(os.getenv("EPISTEMIC_TARGET_ROOT", str(repo_root))).resolve()
     validator = Validator(evidence_mapper=EvidenceMapper(project_root=target_root))
+    decomposer = Decomposer(project_root=target_root)
 
     orchestrator = FractalResearchOrchestrator(
         config=config,
-        decomposer=Decomposer(),
+        decomposer=decomposer,
         validator=validator,
         synthesizer=Synthesizer(),
     )
