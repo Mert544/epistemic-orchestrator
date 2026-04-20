@@ -4,6 +4,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from app.tools.dependency_graph import DependencyGraphBuilder
 from app.tools.python_structure import PythonStructureAnalyzer
 
 
@@ -112,10 +113,10 @@ class ProjectProfiler:
         if not modules:
             return
 
-        import_rank = sorted(modules, key=lambda m: len(m.imports), reverse=True)
-        symbol_rank = sorted(modules, key=lambda m: len(m.symbols), reverse=True)
+        graph_builder = DependencyGraphBuilder(self.root)
+        profile.dependency_hubs = graph_builder.top_central_modules(limit=5)
 
-        profile.dependency_hubs = [m.path for m in import_rank if len(m.imports) > 0][:5]
+        symbol_rank = sorted(modules, key=lambda m: len(m.symbols), reverse=True)
         profile.symbol_hubs = [m.path for m in symbol_rank if len(m.symbols) > 0][:5]
 
         test_names = {Path(path).stem.lower() for path in profile.test_files}
