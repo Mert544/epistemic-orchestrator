@@ -4,7 +4,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from app.models.enums import NodeStatus, StopReason
+from app.models.enums import ClaimType, NodeStatus, StopReason
 from app.models.question import Question
 
 
@@ -18,6 +18,10 @@ class ResearchNode(BaseModel):
     assumptions: list[str] = Field(default_factory=list)
 
     questions: list[Question] = Field(default_factory=list)
+
+    claim_type: ClaimType = ClaimType.GENERAL
+    claim_priority: float = 0.0
+    claim_signals: list[str] = Field(default_factory=list)
 
     confidence: float = 0.0
     quality: float = 0.0
