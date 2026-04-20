@@ -15,9 +15,9 @@ class PersistentMemoryStore:
     def hydrate_graph(self, graph) -> dict[str, Any]:
         state = self.load_state()
         for claim in state.get("known_claims", []):
-            graph.register_claim(claim)
+            graph.load_memory_claim(claim)
         for question in state.get("known_questions", []):
-            graph.register_question(question)
+            graph.load_memory_question(question)
         return state
 
     def persist_run(self, objective: str, report, nodes) -> dict[str, Any]:
