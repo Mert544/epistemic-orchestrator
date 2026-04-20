@@ -7,10 +7,7 @@ from app.skills.decomposer import Decomposer
 from app.skills.synthesizer import Synthesizer
 from app.skills.validator import Validator
 from app.utils.json_utils import pretty_json
-from app.utils.logging import get_logger
 from app.utils.yaml_utils import load_yaml
-
-logger = get_logger(__name__)
 
 
 def main() -> None:
@@ -26,7 +23,6 @@ def main() -> None:
 
     objective = "Research current market structure and derive actionable claims."
     report = orchestrator.run(objective)
-    logger.info("Run complete.")
     print(pretty_json(report.model_dump()))
 
 
