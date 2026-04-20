@@ -46,10 +46,20 @@ class FractalResearchOrchestrator:
         self.termination = TerminationEngine(config)
         self.execution_loop = ExecutionLoop()
         self.memory_state = self.memory_store.hydrate_graph(self.graph) if self.memory_store is not None else {}
+        self.debug_stats = {
+            "run_question_duplicates_blocked": 0,
+            "memory_question_repeats_degraded": 0,
+            "run_claim_duplicates_blocked": 0,
+            "memory_claim_repeats_degraded": 0,
+            "spam_questions_filtered": 0,
+            "spam_claims_filtered": 0,
+        }
 
     def run(self, objective: str):
-        root_claims = [claim for claim in self.decomposer.decompose(objective) if self.claim_normalizer.is_viable(claim)]
-        root_claims = self.spam_guard.filter_claims(list(dict.fromkeys(root_claims)))
+        raw_root_claims = [claim for claim in self.decomposer.decompose(objective) if self.claim_normalizer.is_viable(claim)]
+        root_claims = self.spam_guard.filter_claims(list(dict.fromkeys(raw_root_claims)))
+        self.debug_stats["spam_claims_filtered"] += max(0, len(raw_root_claims) - len(root_claims))
+
         root_nodes = [
             self._make_node(
                 id=f"root-{i}",
@@ -67,6 +77,7 @@ class FractalResearchOrchestrator:
             self._expand(node)
 
         report = self.synthesizer.synthesize(objective, self.graph.get_all_nodes())
+        report.debug_stats = dict(self.debug_stats)
         if self.memory_store is not None:
             memory_summary = self.memory_store.persist_run(objective, report, self.graph.get_all_nodes())
             report.memory_file = memory_summary.get("memory_file")
@@ -124,6 +135,8 @@ class FractalResearchOrchestrator:
         node.security = self.security_governor.review(node)
         node.quality = self.quality_judge.evaluate(node)
         node.novelty = self.novelty_scorer.score_node(node)
+        if self.graph.has_memory_claim(node.claim):
+            self.debug_stats["memory_claim_repeats_degraded"] += 1
 
         stop = self.termination.should_stop_after_scoring(node)
         if stop is not None:
@@ -134,9 +147,13 @@ class FractalResearchOrchestrator:
         fresh_questions = []
         for question in node.questions:
             if self.graph.has_similar_question(question.text):
+                self.debug_stats["run_question_duplicates_blocked"] += 1
                 continue
             if self.spam_guard.is_low_value_question(question.text, node.claim):
+                self.debug_stats["spam_questions_filtered"] += 1
                 continue
+            if self.graph.has_memory_question(question.text):
+                self.debug_stats["memory_question_repeats_degraded"] += 1
             question.novelty = self.novelty_scorer.score_question(question.text)
             question.priority = score_question_priority(
                 impact=question.impact,
@@ -163,12 +180,14 @@ class FractalResearchOrchestrator:
 
             raw_child_claims = self.decomposer.decompose(question.text)
             child_claims = [claim for claim in raw_child_claims if self.claim_normalizer.is_viable(claim)]
-            child_claims = self.spam_guard.filter_claims(list(dict.fromkeys(child_claims)), parent_claim=node.claim)
-            if not child_claims:
+            deduped_claims = list(dict.fromkeys(child_claims))
+            filtered_claims = self.spam_guard.filter_claims(deduped_claims, parent_claim=node.claim)
+            self.debug_stats["spam_claims_filtered"] += max(0, len(deduped_claims) - len(filtered_claims))
+            if not filtered_claims:
                 continue
 
             child_nodes = []
-            for j, child_claim in enumerate(child_claims):
+            for j, child_claim in enumerate(filtered_claims):
                 branch_path = make_branch_path(node.branch_path, child_counter)
                 child_counter += 1
                 child_nodes.append(
@@ -189,7 +208,10 @@ class FractalResearchOrchestrator:
                     node.stop_reason = StopReason.BUDGET_EXHAUSTED
                     return
                 if self.graph.has_similar_claim(child.claim):
+                    self.debug_stats["run_claim_duplicates_blocked"] += 1
                     continue
+                if self.graph.has_memory_claim(child.claim):
+                    self.debug_stats["memory_claim_repeats_degraded"] += 1
                 self.graph.add_node(child)
                 self.budget.consume_node()
                 self.execution_loop.expand(self, child)
