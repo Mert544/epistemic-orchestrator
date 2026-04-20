@@ -63,6 +63,20 @@ class Decomposer:
                 + ", which should be examined for orchestration, control flow, and dependency assumptions."
             )
 
+        if profile.dependency_hubs:
+            claims.append(
+                "Dependency hub claim: the files "
+                + ", ".join(profile.dependency_hubs[:5])
+                + ", appear central in the import graph and should be expanded first for dependency risk and architectural coupling."
+            )
+
+        if profile.symbol_hubs:
+            claims.append(
+                "Symbol density claim: the files "
+                + ", ".join(profile.symbol_hubs[:5])
+                + ", define unusually rich symbol surfaces and may hide high-leverage abstractions or overgrown responsibilities."
+            )
+
         if profile.test_files:
             claims.append(
                 f"Validation surface claim: the repository contains {len(profile.test_files)} test-related files, so evidence should compare implementation paths against available test coverage."
@@ -70,6 +84,13 @@ class Decomposer:
         else:
             claims.append(
                 "Testing gap claim: the repository does not visibly expose test files, so missing validation coverage may be a first-order project risk."
+            )
+
+        if profile.untested_modules:
+            claims.append(
+                "Untested module claim: the files "
+                + ", ".join(profile.untested_modules[:5])
+                + ", do not appear to have obvious matching tests, so validation-oriented branching should inspect them early."
             )
 
         if profile.ci_files:
