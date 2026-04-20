@@ -12,6 +12,8 @@ class TestCoverageResult:
 
 
 class TestLinker:
+    __test__ = False
+
     def __init__(self, root: str | Path) -> None:
         self.root = Path(root)
 
