@@ -1,14 +1,15 @@
 from __future__ import annotations
 
-import re
 from pathlib import Path
 
+from app.skills.claim_normalizer import ClaimNormalizer
 from app.tools.project_profile import ProjectProfiler
 
 
 class Decomposer:
     def __init__(self, project_root: str | Path | None = None) -> None:
         self.project_root = Path(project_root) if project_root is not None else None
+        self.normalizer = ClaimNormalizer()
 
     def decompose(self, text: str) -> list[str]:
         cleaned = text.strip()
@@ -20,8 +21,15 @@ class Decomposer:
             if seeded:
                 return seeded
 
-        parts = self._split_text(cleaned)
-        return parts or [cleaned]
+        normalized = self.normalizer.normalize(cleaned)
+        if self.normalizer._looks_like_question(cleaned):
+            return [normalized] if self.normalizer.is_viable(normalized) else []
+
+        parts = self.normalizer.split_sentences(cleaned)
+        if parts:
+            return parts
+
+        return [normalized] if self.normalizer.is_viable(normalized) else []
 
     def _should_seed_from_project(self, text: str) -> bool:
         lowered = text.lower()
@@ -124,12 +132,3 @@ class Decomposer:
         )
 
         return claims
-
-    def _split_text(self, text: str) -> list[str]:
-        normalized = re.sub(r"\s+", " ", text.replace("\n", " ")).strip()
-        if not normalized:
-            return []
-
-        sentence_parts = re.split(r"(?<=[.!?])\s+(?=[A-Z])", normalized)
-        parts = [part.strip(" -") for part in sentence_parts if len(part.strip(" -")) > 12]
-        return parts[:5]
