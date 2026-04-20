@@ -111,12 +111,17 @@ class FractalResearchOrchestrator:
         return report
 
     def _resolve_focus_branch(self, focus_branch: str) -> tuple[str | None, str | None]:
-        last_report = self.memory_state.get("last_report", {}) if isinstance(self.memory_state, dict) else {}
-        branch_map = last_report.get("branch_map", {}) if isinstance(last_report, dict) else {}
-        branch_questions = last_report.get("branch_questions", {}) if isinstance(last_report, dict) else {}
-        claim = branch_map.get(focus_branch)
-        question = branch_questions.get(focus_branch)
-        return claim, question
+        state = self.memory_state if isinstance(self.memory_state, dict) else {}
+        full_report = state.get("last_full_report", {}) if isinstance(state.get("last_full_report", {}), dict) else {}
+        last_report = state.get("last_report", {}) if isinstance(state.get("last_report", {}), dict) else {}
+
+        for candidate in (full_report, last_report):
+            branch_map = candidate.get("branch_map", {}) if isinstance(candidate, dict) else {}
+            branch_questions = candidate.get("branch_questions", {}) if isinstance(candidate, dict) else {}
+            claim = branch_map.get(focus_branch)
+            if claim:
+                return claim, branch_questions.get(focus_branch)
+        return None, None
 
     def _make_node(
         self,
