@@ -20,7 +20,7 @@ class PersistentMemoryStore:
             graph.register_question(question)
         return state
 
-    def persist_run(self, objective: str, report, nodes) -> Path:
+    def persist_run(self, objective: str, report, nodes) -> dict[str, Any]:
         state = self.load_state()
         run_id = self._make_run_id()
 
@@ -48,6 +48,7 @@ class PersistentMemoryStore:
         state["last_report"] = report.model_dump()
 
         runs = state.get("runs", [])
+        previous_run_count = len(runs)
         runs.append(
             {
                 "run_id": run_id,
@@ -64,7 +65,14 @@ class PersistentMemoryStore:
 
         self.memory_dir.mkdir(parents=True, exist_ok=True)
         self.memory_file.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
-        return self.memory_file
+
+        return {
+            "memory_file": str(self.memory_file),
+            "run_id": run_id,
+            "known_claim_count": len(state.get("known_claims", [])),
+            "known_question_count": len(state.get("known_questions", [])),
+            "previous_run_count": previous_run_count,
+        }
 
     def load_state(self) -> dict[str, Any]:
         if not self.memory_file.exists():
