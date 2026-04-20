@@ -4,6 +4,8 @@ from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from app.tools.python_structure import PythonStructureAnalyzer
+
 
 @dataclass
 class ProjectProfile:
@@ -16,6 +18,9 @@ class ProjectProfile:
     ci_files: list[str] = field(default_factory=list)
     config_files: list[str] = field(default_factory=list)
     sensitive_paths: list[str] = field(default_factory=list)
+    dependency_hubs: list[str] = field(default_factory=list)
+    symbol_hubs: list[str] = field(default_factory=list)
+    untested_modules: list[str] = field(default_factory=list)
 
 
 class ProjectProfiler:
@@ -97,4 +102,33 @@ class ProjectProfiler:
         profile.ci_files = sorted(dict.fromkeys(profile.ci_files))
         profile.config_files = sorted(dict.fromkeys(profile.config_files))
         profile.sensitive_paths = sorted(dict.fromkeys(profile.sensitive_paths))
+
+        self._populate_python_structure(profile)
         return profile
+
+    def _populate_python_structure(self, profile: ProjectProfile) -> None:
+        analyzer = PythonStructureAnalyzer(self.root)
+        modules = analyzer.analyze()
+        if not modules:
+            return
+
+        import_rank = sorted(modules, key=lambda m: len(m.imports), reverse=True)
+        symbol_rank = sorted(modules, key=lambda m: len(m.symbols), reverse=True)
+
+        profile.dependency_hubs = [m.path for m in import_rank if len(m.imports) > 0][:5]
+        profile.symbol_hubs = [m.path for m in symbol_rank if len(m.symbols) > 0][:5]
+
+        test_names = {Path(path).stem.lower() for path in profile.test_files}
+        untested: list[str] = []
+        for module in modules:
+            module_path = module.path.lower()
+            module_stem = Path(module.path).stem.lower()
+            if "/tests/" in f"/{module_path}/" or module_stem.startswith("test_"):
+                continue
+            if module_stem == "__init__":
+                continue
+            expected_test_name = f"test_{module_stem}"
+            if expected_test_name not in test_names and module_stem not in test_names:
+                untested.append(module.path)
+
+        profile.untested_modules = untested[:5]
