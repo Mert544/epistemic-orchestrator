@@ -70,3 +70,19 @@ def test_focus_branch_miss_falls_back_to_full_scan(tmp_path: Path):
     assert run.focus_claim is None
     assert run.debug_stats['focus_branch_misses'] == 1
     assert len(run.branch_map) >= 6
+
+
+def test_full_branch_map_is_preserved_after_focused_run(tmp_path: Path):
+    _build_demo_project(tmp_path)
+    objective = 'Scan the target project, extract meaningful implementation claims, and continue with constitution-driven fractal questioning.'
+
+    full_run = _make_orchestrator(tmp_path).run(objective)
+    deep_branches = [branch for branch in full_run.branch_map if branch.count('.') >= 2]
+    first_focus, second_focus = deep_branches[0], deep_branches[1]
+
+    _make_orchestrator(tmp_path).run(objective, focus_branch=first_focus)
+    focused_again = _make_orchestrator(tmp_path).run(objective, focus_branch=second_focus)
+
+    assert focused_again.focus_branch == second_focus
+    assert focused_again.focus_claim == full_run.branch_map[second_focus]
+    assert focused_again.debug_stats['focus_branch_hits'] == 1
