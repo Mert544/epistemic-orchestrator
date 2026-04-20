@@ -43,6 +43,7 @@ def test_persistent_memory_hydrates_and_persists_runs(tmp_path: Path):
 
     graph2 = GraphStore()
     state2 = store.hydrate_graph(graph2)
-    assert graph2.has_similar_claim("Dependency hub claim") is True
-    assert graph2.has_similar_question("What evidence would directly contradict this claim: Dependency hub claim?") is True
+    assert graph2.has_memory_claim("Dependency hub claim") is True
+    assert graph2.has_memory_question("What evidence would directly contradict this claim: Dependency hub claim?") is True
+    assert graph2.has_similar_claim("Dependency hub claim") is False
     assert len(state2["runs"]) == 1
