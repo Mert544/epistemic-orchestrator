@@ -1,0 +1,5 @@
+[project]
+name = "synthetic-shop"
+version = "0.1.0"
+description = "Demo project for Epistemic Orchestrator"
+requires-python = ">=3.10"
