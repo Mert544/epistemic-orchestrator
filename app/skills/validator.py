@@ -20,9 +20,9 @@ class Validator:
         assumptions = self.assumption_extractor.extract(claim)
 
         if not evidence_for:
-            evidence_for = [f"No live supporting evidence collected yet for: {claim}"]
+            evidence_for = [f"No local supporting evidence found yet for: {claim}"]
         if not evidence_against:
-            evidence_against = [f"No live counter-evidence collected yet for: {claim}"]
+            evidence_against = [f"No local counter-evidence found yet for: {claim}"]
 
         risk = self._score_risk(
             claim=claim,
@@ -43,11 +43,11 @@ class Validator:
         lowered = claim.lower()
         base = 0.35
 
-        if any(keyword in lowered for keyword in {"security", "finance", "medical", "health", "market"}):
+        if any(keyword in lowered for keyword in {"security", "finance", "medical", "health", "market", "auth", "payment"}):
             base += 0.20
-        if evidence_against and not evidence_against[0].startswith("No live counter-evidence"):
+        if evidence_against and not evidence_against[0].startswith("No local counter-evidence"):
             base += 0.10
-        if evidence_for and evidence_for[0].startswith("No live supporting evidence"):
+        if evidence_for and evidence_for[0].startswith("No local supporting evidence"):
             base += 0.20
 
         return min(base, 0.95)
