@@ -18,6 +18,7 @@ def main() -> None:
     config = load_yaml(repo_root / "config" / "default.yaml")
 
     target_root = Path(os.getenv("EPISTEMIC_TARGET_ROOT", str(repo_root))).resolve()
+    focus_branch = os.getenv("EPISTEMIC_FOCUS_BRANCH") or None
     validator = Validator(evidence_mapper=EvidenceMapper(project_root=target_root))
     decomposer = Decomposer(project_root=target_root)
     memory_store = PersistentMemoryStore(project_root=target_root)
@@ -34,7 +35,7 @@ def main() -> None:
         "Scan the target project, extract meaningful implementation claims, "
         "and continue with constitution-driven fractal questioning."
     )
-    report = orchestrator.run(objective)
+    report = orchestrator.run(objective, focus_branch=focus_branch)
     print(pretty_json(report.model_dump()))
 
 
