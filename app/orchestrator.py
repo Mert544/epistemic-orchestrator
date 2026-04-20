@@ -17,6 +17,7 @@ from app.policies.constitution import (
 from app.policies.scoring import score_confidence, score_question_priority
 from app.skills.assumption_extractor import AssumptionExtractor
 from app.skills.claim_analyzer import ClaimAnalyzer
+from app.skills.claim_normalizer import ClaimNormalizer
 from app.skills.question_generator import QuestionGenerator
 from app.skills.quality_judge import QualityJudge
 from app.skills.security_governor import SecurityGovernor
@@ -32,6 +33,7 @@ class FractalResearchOrchestrator:
         self.graph = GraphStore()
         self.assumption_extractor = AssumptionExtractor()
         self.claim_analyzer = ClaimAnalyzer()
+        self.claim_normalizer = ClaimNormalizer()
         self.question_generator = QuestionGenerator()
         self.quality_judge = QualityJudge()
         self.security_governor = SecurityGovernor()
@@ -41,7 +43,7 @@ class FractalResearchOrchestrator:
         self.execution_loop = ExecutionLoop()
 
     def run(self, objective: str):
-        root_claims = self.decomposer.decompose(objective)
+        root_claims = [claim for claim in self.decomposer.decompose(objective) if self.claim_normalizer.is_viable(claim)]
         root_nodes = [self._make_node(id=f"root-{i}", claim=claim, depth=0) for i, claim in enumerate(root_claims)]
         root_nodes.sort(key=lambda n: n.claim_priority, reverse=True)
 
@@ -123,7 +125,11 @@ class FractalResearchOrchestrator:
                 node.stop_reason = StopReason.BUDGET_EXHAUSTED
                 return
 
-            child_claims = self.decomposer.decompose(question.text)
+            raw_child_claims = self.decomposer.decompose(question.text)
+            child_claims = [claim for claim in raw_child_claims if self.claim_normalizer.is_viable(claim)]
+            if not child_claims:
+                continue
+
             child_nodes = [
                 self._make_node(
                     id=f"{node.id}-{idx}-{j}",
