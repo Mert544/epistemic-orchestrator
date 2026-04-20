@@ -41,11 +41,14 @@ class PersistentMemoryStore:
                 }
             )
 
+        report_dump = report.model_dump()
         state["schema_version"] = 1
         state["project_root"] = str(self.project_root)
         state["known_claims"] = self._dedupe([*state.get("known_claims", []), *report.confidence_map.keys()])
         state["known_questions"] = self._dedupe([*state.get("known_questions", []), *report.unresolved_questions])
-        state["last_report"] = report.model_dump()
+        state["last_report"] = report_dump
+        if not getattr(report, "focus_branch", None):
+            state["last_full_report"] = report_dump
 
         runs = state.get("runs", [])
         previous_run_count = len(runs)
@@ -54,6 +57,8 @@ class PersistentMemoryStore:
                 "run_id": run_id,
                 "timestamp": self._utc_now(),
                 "objective": objective,
+                "run_mode": "focused" if getattr(report, "focus_branch", None) else "full",
+                "focus_branch": getattr(report, "focus_branch", None),
                 "main_findings": report.main_findings[:10],
                 "recommended_actions": report.recommended_actions[:10],
                 "branch_count": len(report.branch_map),
@@ -84,10 +89,12 @@ class PersistentMemoryStore:
                 "runs": [],
                 "branch_history": [],
                 "last_report": {},
+                "last_full_report": {},
             }
         try:
             raw = json.loads(self.memory_file.read_text(encoding="utf-8"))
             if isinstance(raw, dict):
+                raw.setdefault("last_full_report", {})
                 return raw
         except Exception:
             pass
@@ -99,6 +106,7 @@ class PersistentMemoryStore:
             "runs": [],
             "branch_history": [],
             "last_report": {},
+            "last_full_report": {},
         }
 
     def _make_run_id(self) -> str:
