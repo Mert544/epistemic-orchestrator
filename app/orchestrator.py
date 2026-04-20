@@ -21,6 +21,7 @@ from app.skills.claim_normalizer import ClaimNormalizer
 from app.skills.question_generator import QuestionGenerator
 from app.skills.quality_judge import QualityJudge
 from app.skills.security_governor import SecurityGovernor
+from app.utils.branching import make_branch_path
 
 
 class FractalResearchOrchestrator:
@@ -45,7 +46,15 @@ class FractalResearchOrchestrator:
     def run(self, objective: str):
         root_claims = [claim for claim in self.decomposer.decompose(objective) if self.claim_normalizer.is_viable(claim)]
         root_claims = list(dict.fromkeys(root_claims))
-        root_nodes = [self._make_node(id=f"root-{i}", claim=claim, depth=0) for i, claim in enumerate(root_claims)]
+        root_nodes = [
+            self._make_node(
+                id=f"root-{i}",
+                claim=claim,
+                depth=0,
+                branch_path=make_branch_path("x", i),
+            )
+            for i, claim in enumerate(root_claims)
+        ]
         root_nodes.sort(key=lambda n: n.claim_priority, reverse=True)
 
         for node in root_nodes:
@@ -54,13 +63,23 @@ class FractalResearchOrchestrator:
             self._expand(node)
         return self.synthesizer.synthesize(objective, self.graph.get_all_nodes())
 
-    def _make_node(self, id: str, claim: str, depth: int, parent_ids: list[str] | None = None) -> ResearchNode:
+    def _make_node(
+        self,
+        id: str,
+        claim: str,
+        depth: int,
+        parent_ids: list[str] | None = None,
+        branch_path: str = "",
+        source_question: str | None = None,
+    ) -> ResearchNode:
         analysis = self.claim_analyzer.analyze(claim)
         return ResearchNode(
             id=id,
             claim=claim,
             parent_ids=parent_ids or [],
             depth=depth,
+            branch_path=branch_path,
+            source_question=source_question,
             claim_type=analysis.claim_type,
             claim_priority=analysis.priority,
             claim_signals=analysis.signals,
@@ -120,6 +139,7 @@ class FractalResearchOrchestrator:
 
         selected_questions = sorted(fresh_questions, key=lambda q: q.priority, reverse=True)[: int(self.config["top_k_questions"])]
 
+        child_counter = 0
         for idx, question in enumerate(selected_questions):
             if self.budget.exhausted:
                 node.status = NodeStatus.STOPPED
@@ -132,15 +152,20 @@ class FractalResearchOrchestrator:
             if not child_claims:
                 continue
 
-            child_nodes = [
-                self._make_node(
-                    id=f"{node.id}-{idx}-{j}",
-                    claim=child_claim,
-                    parent_ids=[node.id],
-                    depth=node.depth + 1,
+            child_nodes = []
+            for j, child_claim in enumerate(child_claims):
+                branch_path = make_branch_path(node.branch_path, child_counter)
+                child_counter += 1
+                child_nodes.append(
+                    self._make_node(
+                        id=f"{node.id}-{idx}-{j}",
+                        claim=child_claim,
+                        parent_ids=[node.id],
+                        depth=node.depth + 1,
+                        branch_path=branch_path,
+                        source_question=question.text,
+                    )
                 )
-                for j, child_claim in enumerate(child_claims)
-            ]
             child_nodes.sort(key=lambda n: n.claim_priority, reverse=True)
 
             for child in child_nodes:
