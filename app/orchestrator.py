@@ -44,6 +44,7 @@ class FractalResearchOrchestrator:
 
     def run(self, objective: str):
         root_claims = [claim for claim in self.decomposer.decompose(objective) if self.claim_normalizer.is_viable(claim)]
+        root_claims = list(dict.fromkeys(root_claims))
         root_nodes = [self._make_node(id=f"root-{i}", claim=claim, depth=0) for i, claim in enumerate(root_claims)]
         root_nodes.sort(key=lambda n: n.claim_priority, reverse=True)
 
@@ -127,6 +128,7 @@ class FractalResearchOrchestrator:
 
             raw_child_claims = self.decomposer.decompose(question.text)
             child_claims = [claim for claim in raw_child_claims if self.claim_normalizer.is_viable(claim)]
+            child_claims = list(dict.fromkeys(child_claims))
             if not child_claims:
                 continue
 
@@ -146,6 +148,8 @@ class FractalResearchOrchestrator:
                     node.status = NodeStatus.STOPPED
                     node.stop_reason = StopReason.BUDGET_EXHAUSTED
                     return
+                if self.graph.has_similar_claim(child.claim):
+                    continue
                 self.graph.add_node(child)
                 self.budget.consume_node()
                 self.execution_loop.expand(self, child)
