@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from app.tools.project_profile import ProjectProfiler
@@ -125,7 +126,10 @@ class Decomposer:
         return claims
 
     def _split_text(self, text: str) -> list[str]:
-        normalized = text.replace("\n", ". ")
-        rough_parts = [part.strip(" -") for part in normalized.split(".")]
-        parts = [part for part in rough_parts if len(part) > 12]
+        normalized = re.sub(r"\s+", " ", text.replace("\n", " ")).strip()
+        if not normalized:
+            return []
+
+        sentence_parts = re.split(r"(?<=[.!?])\s+(?=[A-Z])", normalized)
+        parts = [part.strip(" -") for part in sentence_parts if len(part.strip(" -")) > 12]
         return parts[:5]
