@@ -25,6 +25,9 @@ class Synthesizer:
             report.confidence_map[node.claim] = node.confidence
             report.claim_types[node.claim] = node.claim_type.value
             report.claim_priorities[node.claim] = round(node.claim_priority, 4)
+            report.branch_map[node.branch_path] = node.claim
+            if node.source_question:
+                report.branch_questions[node.branch_path] = node.source_question
             for assumption in node.assumptions:
                 if assumption not in seen_assumptions:
                     seen_assumptions.add(assumption)
@@ -42,10 +45,10 @@ class Synthesizer:
                     seen_unresolved.add(question.text)
                     report.unresolved_questions.append(question.text)
             report.key_risks.append(
-                f"[{node.claim_type.value}] {node.claim} -> risk={node.risk:.2f} priority={node.claim_priority:.2f}"
+                f"[{node.branch_path}] [{node.claim_type.value}] {node.claim} -> risk={node.risk:.2f} priority={node.claim_priority:.2f}"
             )
             if node.status == NodeStatus.STOPPED and node.stop_reason:
-                report.stopped_branches.append(f"{node.claim} -> {node.stop_reason.value}")
+                report.stopped_branches.append(f"{node.branch_path} {node.claim} -> {node.stop_reason.value}")
             if node.claim not in seen_findings and len(report.main_findings) < 10:
                 seen_findings.add(node.claim)
                 report.main_findings.append(node.claim)
