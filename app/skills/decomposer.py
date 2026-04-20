@@ -29,7 +29,11 @@ class Decomposer:
         if parts:
             return parts
 
-        return [normalized] if self.normalizer.is_viable(normalized) else []
+        if self.normalizer.is_viable(normalized):
+            return [normalized]
+
+        fallback = self.normalizer.normalize(f"Objective claim: {cleaned} should be investigated further.")
+        return [fallback] if self.normalizer.is_viable(fallback) else []
 
     def _should_seed_from_project(self, text: str) -> bool:
         lowered = text.lower()
