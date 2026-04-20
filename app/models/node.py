@@ -1,0 +1,30 @@
+from __future__ import annotations
+
+from typing import Optional
+
+from pydantic import BaseModel, Field
+
+from app.models.enums import NodeStatus, StopReason
+from app.models.question import Question
+
+
+class ResearchNode(BaseModel):
+    id: str
+    claim: str
+    parent_ids: list[str] = Field(default_factory=list)
+
+    evidence_for: list[str] = Field(default_factory=list)
+    evidence_against: list[str] = Field(default_factory=list)
+    assumptions: list[str] = Field(default_factory=list)
+
+    questions: list[Question] = Field(default_factory=list)
+
+    confidence: float = 0.0
+    quality: float = 0.0
+    risk: float = 0.0
+    novelty: float = 1.0
+    security: float = 1.0
+
+    status: NodeStatus = NodeStatus.NEW
+    stop_reason: Optional[StopReason] = None
+    depth: int = 0
