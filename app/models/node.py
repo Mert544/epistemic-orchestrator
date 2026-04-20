@@ -12,6 +12,8 @@ class ResearchNode(BaseModel):
     id: str
     claim: str
     parent_ids: list[str] = Field(default_factory=list)
+    branch_path: str = ""
+    source_question: str | None = None
 
     evidence_for: list[str] = Field(default_factory=list)
     evidence_against: list[str] = Field(default_factory=list)
