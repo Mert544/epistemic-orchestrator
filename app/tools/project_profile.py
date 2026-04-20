@@ -6,6 +6,7 @@ from pathlib import Path
 
 from app.tools.dependency_graph import DependencyGraphBuilder
 from app.tools.python_structure import PythonStructureAnalyzer
+from app.tools.test_linker import TestLinker
 
 
 @dataclass
@@ -22,6 +23,8 @@ class ProjectProfile:
     dependency_hubs: list[str] = field(default_factory=list)
     symbol_hubs: list[str] = field(default_factory=list)
     untested_modules: list[str] = field(default_factory=list)
+    critical_untested_modules: list[str] = field(default_factory=list)
+    module_to_tests: dict[str, list[str]] = field(default_factory=dict)
 
 
 class ProjectProfiler:
@@ -119,17 +122,8 @@ class ProjectProfiler:
         symbol_rank = sorted(modules, key=lambda m: len(m.symbols), reverse=True)
         profile.symbol_hubs = [m.path for m in symbol_rank if len(m.symbols) > 0][:5]
 
-        test_names = {Path(path).stem.lower() for path in profile.test_files}
-        untested: list[str] = []
-        for module in modules:
-            module_path = module.path.lower()
-            module_stem = Path(module.path).stem.lower()
-            if "/tests/" in f"/{module_path}/" or module_stem.startswith("test_"):
-                continue
-            if module_stem == "__init__":
-                continue
-            expected_test_name = f"test_{module_stem}"
-            if expected_test_name not in test_names and module_stem not in test_names:
-                untested.append(module.path)
-
-        profile.untested_modules = untested[:5]
+        linker = TestLinker(self.root)
+        coverage = linker.analyze(critical_modules=profile.dependency_hubs)
+        profile.module_to_tests = coverage.module_to_tests
+        profile.untested_modules = coverage.untested_modules[:5]
+        profile.critical_untested_modules = coverage.critical_untested_modules[:5]
