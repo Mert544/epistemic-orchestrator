@@ -1,0 +1,6 @@
+routing:
+  decomposition: deep_model
+  validation: deep_model
+  question_generation: cheap_model
+  synthesis: deep_model
+  dedup: exact_match
