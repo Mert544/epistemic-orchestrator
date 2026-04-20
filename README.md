@@ -20,6 +20,7 @@ Epistemic Orchestrator is designed to go further:
 - **fractal**: every meaningful claim can generate deeper sub-questions
 - **risk-aware**: contradictory evidence, security, quality, novelty, and budget gates matter
 - **memory-aware**: the agent can remember prior runs without becoming blind to repeated but still important branches
+- **branch-focus aware**: the user can ask the engine to deepen one exact fractal branch such as `x.a` or `x.b.c`
 - **action-oriented**: the end state is not just insight, but useful engineering direction
 
 ## What “fractal” means here
@@ -98,7 +99,9 @@ flowchart TD
 - grounded recommended actions
 - agent memory stored under `.epistemic/memory.json`
 - memory-aware novelty scoring with **degrade-not-block** behavior
-- debug stats for duplicate blocking, memory degradation, and spam filtering
+- branch map output such as `x.a`, `x.a.b`, `x.c.a`
+- branch focus mode for user-directed deepening
+- debug stats for duplicate blocking, memory degradation, spam filtering, and focus-branch hits/misses
 - recursive question generation with constitutional gates
 - final synthesis with confidence map and prioritized findings
 - test suite + GitHub Actions CI
@@ -180,7 +183,17 @@ Important behavior:
 - repeated items from **prior runs** are **degraded**, not blocked outright
 - low-value recursive noise is still filtered by the spam guard
 
-### 6. Synthesis
+### 6. Branch focus mode
+After a normal run, the report includes a `branch_map` and `branch_questions` section.
+You can reuse one of those branch paths in a later run to deepen only that branch.
+
+Behavior:
+
+- if the branch exists in agent memory, the focused run starts from that exact claim
+- descendants continue underneath the same prefix, for example `x.b.c`, `x.b.c.a`, `x.b.c.b`
+- if the branch does not exist, the system falls back to a normal full scan and records a focus miss in `debug_stats`
+
+### 7. Synthesis
 The final report contains:
 
 - main findings
@@ -195,6 +208,7 @@ The final report contains:
 - stopped branches
 - recommended actions
 - memory metadata and debug stats
+- optional focus branch metadata
 
 ## Quick start
 
@@ -228,6 +242,14 @@ python -m app.main
 Run it a second time against the same project to observe agent memory behavior.
 The report should keep branching alive while showing memory-related degradation counters in `debug_stats`.
 
+Then focus one branch:
+
+```bash
+export EPISTEMIC_TARGET_ROOT=$(pwd)/examples/synthetic_shop
+export EPISTEMIC_FOCUS_BRANCH=x.a
+python -m app.main
+```
+
 What you should expect to see in the report:
 
 - dependency hub claims around `order_service.py`
@@ -235,6 +257,7 @@ What you should expect to see in the report:
 - validation gap or untested module claims
 - configuration and automation-related signals
 - a `.epistemic/memory.json` file created in the target project
+- focused runs whose branch keys stay under the selected prefix
 
 ## Recommended usage modes
 
@@ -262,6 +285,7 @@ Use it for:
 - payment flow review
 - CI gap analysis
 - entrypoint risk analysis
+- branch-directed deepening such as `x.a.b`
 
 ## Example analysis themes
 
@@ -270,6 +294,7 @@ Use it for:
 - Which entrypoints create architectural coupling risk?
 - Which config surfaces likely hide environment assumptions?
 - Which subsystems deserve the next engineering investment?
+- Which specific branch should be deepened next?
 
 ## Roadmap
 
@@ -283,7 +308,7 @@ Use it for:
 - refactor/test suggestion engine
 - patch candidate generation
 - host adapters for Claude Code / opencode
-- branch-focused user-directed expansion
+- richer branch-focused user-directed expansion
 
 ### Later
 - semantic retrieval
