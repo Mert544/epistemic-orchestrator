@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+from app.memory.persistent_memory import PersistentMemoryStore
 from app.orchestrator import FractalResearchOrchestrator
 from app.skills.decomposer import Decomposer
 from app.skills.evidence_mapper import EvidenceMapper
@@ -19,12 +20,14 @@ def main() -> None:
     target_root = Path(os.getenv("EPISTEMIC_TARGET_ROOT", str(repo_root))).resolve()
     validator = Validator(evidence_mapper=EvidenceMapper(project_root=target_root))
     decomposer = Decomposer(project_root=target_root)
+    memory_store = PersistentMemoryStore(project_root=target_root)
 
     orchestrator = FractalResearchOrchestrator(
         config=config,
         decomposer=decomposer,
         validator=validator,
         synthesizer=Synthesizer(project_root=target_root),
+        memory_store=memory_store,
     )
 
     objective = (
