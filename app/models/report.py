@@ -5,6 +5,8 @@ class FinalReport(BaseModel):
     objective: str
     main_findings: list[str] = Field(default_factory=list)
     confidence_map: dict[str, float] = Field(default_factory=dict)
+    claim_types: dict[str, str] = Field(default_factory=dict)
+    claim_priorities: dict[str, float] = Field(default_factory=dict)
     strongest_supporting_evidence: list[str] = Field(default_factory=list)
     strongest_opposing_evidence: list[str] = Field(default_factory=list)
     assumptions: list[str] = Field(default_factory=list)
