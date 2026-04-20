@@ -34,3 +34,16 @@ def test_project_aware_decomposer_seeds_structural_claims(tmp_path: Path):
     assert any("Symbol density claim" in claim for claim in claims)
     assert any("Untested module claim" in claim for claim in claims)
     assert any("Automation claim" in claim for claim in claims)
+
+
+def test_decomposer_normalizes_question_child_claim_without_fragmenting_paths():
+    decomposer = Decomposer()
+    claims = decomposer.decompose(
+        "What critical information is missing to validate this claim: Dependency hub claim: the files app/services/order_service.py, app/payments/gateway.py, appear central in the import graph and should be expanded first for dependency risk and architectural coupling?"
+    )
+
+    assert len(claims) == 1
+    assert claims[0].startswith("Missing-information claim:")
+    assert "app/services/order_service.py" in claims[0]
+    assert "app/payments/gateway.py" in claims[0]
+    assert "What critical information" not in claims[0]
