@@ -16,3 +16,8 @@ class FinalReport(BaseModel):
     unresolved_questions: list[str] = Field(default_factory=list)
     stopped_branches: list[str] = Field(default_factory=list)
     recommended_actions: list[str] = Field(default_factory=list)
+    memory_file: str | None = None
+    memory_run_id: str | None = None
+    known_claim_count: int = 0
+    known_question_count: int = 0
+    previous_run_count: int = 0
