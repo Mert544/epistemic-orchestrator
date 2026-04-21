@@ -5,6 +5,7 @@ from pathlib import Path
 from app.automation.models import AutomationContext
 from app.automation.registry import SkillAutomationRegistry
 from app.execution.patch_planner import PatchPlanner
+from app.execution.repair_loop import RepairLoop
 from app.execution.task_planner import TaskPlanner
 from app.execution.verifier import Verifier
 from app.memory.persistent_memory import PersistentMemoryStore
@@ -141,6 +142,15 @@ def verify_changes_skill(context: AutomationContext):
     return result_dict
 
 
+def repair_from_verification_skill(context: AutomationContext):
+    verification = context.state.get("verification", {})
+    patch_plan = context.state.get("patch_plan", {})
+    result = RepairLoop().run(verification=verification, patch_plan=patch_plan)
+    result_dict = result.to_dict()
+    context.state["repair_loop"] = result_dict
+    return result_dict
+
+
 def _target_root(context: AutomationContext):
     target_root = context.project_root
     if context.workspace_dir is not None:
@@ -162,4 +172,5 @@ def build_default_registry() -> SkillAutomationRegistry:
     registry.register("plan_tasks", plan_tasks_skill)
     registry.register("plan_patch", plan_patch_skill)
     registry.register("verify_changes", verify_changes_skill)
+    registry.register("repair_from_verification", repair_from_verification_skill)
     return registry
