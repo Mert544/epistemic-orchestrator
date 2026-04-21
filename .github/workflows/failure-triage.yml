@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download automation artifacts
+        continue-on-error: true
         uses: dawidd6/action-download-artifact@v6
         with:
           workflow: automation-e2e
