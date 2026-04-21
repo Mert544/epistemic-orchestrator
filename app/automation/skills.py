@@ -1,13 +1,17 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from app.automation.models import AutomationContext
 from app.automation.registry import SkillAutomationRegistry
 from app.memory.persistent_memory import PersistentMemoryStore
 from app.orchestrator import FractalResearchOrchestrator
 from app.skills.decomposer import Decomposer
 from app.skills.evidence_mapper import EvidenceMapper
+from app.skills.execution.prepare_workspace import PrepareWorkspaceSkill
 from app.skills.execution.run_tests import RunTestsSkill
 from app.skills.safety.check_patch_scope import CheckPatchScopeSkill
+from app.skills.safety.detect_sensitive_edit import DetectSensitiveEditSkill
 from app.skills.synthesizer import Synthesizer
 from app.skills.validator import Validator
 from app.tools.project_profile import ProjectProfiler
@@ -53,8 +57,29 @@ def run_research_skill(context: AutomationContext):
     return report_dict
 
 
+def prepare_workspace_skill(context: AutomationContext):
+    result = PrepareWorkspaceSkill().run(repo_url=context.repo_url, project_root=context.project_root)
+    result_dict = {
+        "ok": result.ok,
+        "workspace_root": result.workspace_root,
+        "project_dir": result.project_dir,
+        "repo_name": result.repo_name,
+        "error": result.error,
+    }
+    context.state["workspace"] = result_dict
+    if result.ok:
+        context.workspace_dir = Path(result.project_dir)
+    return result_dict
+
+
 def run_tests_skill(context: AutomationContext):
-    result = RunTestsSkill().run(context.project_root)
+    target_root = context.project_root
+    if context.workspace_dir is not None:
+        target_root = context.workspace_dir
+    elif context.state.get("workspace", {}).get("project_dir"):
+        target_root = Path(context.state["workspace"]["project_dir"])
+
+    result = RunTestsSkill().run(target_root)
     result_dict = {
         "project_root": result.project_root,
         "commands": result.commands,
@@ -79,11 +104,25 @@ def check_patch_scope_skill(context: AutomationContext):
     return result_dict
 
 
+def detect_sensitive_edit_skill(context: AutomationContext):
+    changed_files = context.state.get("changed_files", [])
+    result = DetectSensitiveEditSkill().run(changed_files=changed_files)
+    result_dict = {
+        "ok": result.ok,
+        "touched_sensitive_paths": result.touched_sensitive_paths,
+        "detected_hints": result.detected_hints,
+    }
+    context.state["sensitive_edit"] = result_dict
+    return result_dict
+
+
 def build_default_registry() -> SkillAutomationRegistry:
     registry = SkillAutomationRegistry()
     registry.register("profile_project", profile_project_skill)
     registry.register("decompose_objective", decompose_objective_skill)
     registry.register("run_research", run_research_skill)
+    registry.register("prepare_workspace", prepare_workspace_skill)
     registry.register("run_tests", run_tests_skill)
     registry.register("check_patch_scope", check_patch_scope_skill)
+    registry.register("detect_sensitive_edit", detect_sensitive_edit_skill)
     return registry
