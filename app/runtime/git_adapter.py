@@ -1,0 +1,33 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+from app.runtime.command_runner import CommandResult, CommandRunner, CommandSpec
+
+
+class GitAdapter:
+    def __init__(self, runner: CommandRunner | None = None) -> None:
+        self.runner = runner or CommandRunner()
+
+    def clone(self, repo_url: str, destination: str | Path, branch: str | None = None, depth: int = 1) -> CommandResult:
+        command = ["git", "clone", "--depth", str(depth)]
+        if branch:
+            command.extend(["--branch", branch])
+        command.extend([repo_url, str(Path(destination))])
+        return self.runner.run(CommandSpec(command=command))
+
+    def status(self, repo_dir: str | Path) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "status", "--short"], cwd=Path(repo_dir)))
+
+    def diff(self, repo_dir: str | Path, paths: list[str] | None = None) -> CommandResult:
+        command = ["git", "diff", "--", *(paths or [])]
+        return self.runner.run(CommandSpec(command=command, cwd=Path(repo_dir)))
+
+    def create_branch(self, repo_dir: str | Path, branch_name: str) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "checkout", "-b", branch_name], cwd=Path(repo_dir)))
+
+    def restore(self, repo_dir: str | Path, paths: list[str]) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "restore", "--", *paths], cwd=Path(repo_dir)))
+
+    def current_branch(self, repo_dir: str | Path) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "branch", "--show-current"], cwd=Path(repo_dir)))
