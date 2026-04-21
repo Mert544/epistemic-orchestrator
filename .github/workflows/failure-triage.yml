@@ -1,0 +1,130 @@
+name: failure-triage
+
+on:
+  workflow_run:
+    workflows: ["automation-e2e"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  triage:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download automation artifacts
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: automation-e2e
+          workflow_conclusion: ""
+          name: automation-e2e-artifacts
+          path: triage-artifacts
+          if_no_artifact_found: warn
+
+      - name: Build triage summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('triage-artifacts')
+          project_scan = root / 'project_scan.json'
+          focused = root / 'focused_branch.json'
+          memory = root / 'examples' / 'synthetic_shop' / '.epistemic' / 'memory.json'
+          summary_path = Path('triage-summary.md')
+
+          def load_json(path):
+              if path.exists():
+                  try:
+                      return json.loads(path.read_text())
+                  except Exception as exc:
+                      return {'_load_error': str(exc), '_path': str(path)}
+              return None
+
+          scan = load_json(project_scan)
+          focus = load_json(focused)
+          mem = load_json(memory)
+
+          lines = ['# Failure triage summary', '']
+
+          if scan is None and focus is None and mem is None:
+              lines.append('No automation artifacts found.')
+          else:
+              if scan is not None:
+                  lines.append('## project_scan')
+                  if '_load_error' in scan:
+                      lines.append(f"- load error: `{scan['_load_error']}`")
+                  else:
+                      bad = [s for s in scan.get('steps', []) if s.get('status') != 'ok']
+                      final = scan.get('final_output', {}) or {}
+                      lines.append(f"- plan_name: `{scan.get('plan_name')}`")
+                      lines.append(f"- failed_steps: `{len(bad)}`")
+                      lines.append(f"- branch_count: `{len(final.get('branch_map', {}))}`")
+                      lines.append(f"- actions_count: `{len(final.get('recommended_actions', []))}`")
+
+              if focus is not None:
+                  lines.append('')
+                  lines.append('## focused_branch')
+                  if '_load_error' in focus:
+                      lines.append(f"- load error: `{focus['_load_error']}`")
+                  else:
+                      bad = [s for s in focus.get('steps', []) if s.get('status') != 'ok']
+                      final = focus.get('final_output', {}) or {}
+                      branch_map = final.get('branch_map', {}) or {}
+                      focus_branch = final.get('focus_branch')
+                      only_prefix = True
+                      if focus_branch:
+                          only_prefix = all(
+                              b == focus_branch or str(b).startswith(focus_branch + '.')
+                              for b in branch_map
+                          )
+                      lines.append(f"- failed_steps: `{len(bad)}`")
+                      lines.append(f"- focus_branch: `{focus_branch}`")
+                      lines.append(f"- focus_claim_present: `{bool(final.get('focus_claim'))}`")
+                      lines.append(f"- only_focus_prefix: `{only_prefix}`")
+
+              if mem is not None:
+                  lines.append('')
+                  lines.append('## memory')
+                  if '_load_error' in mem:
+                      lines.append(f"- load error: `{mem['_load_error']}`")
+                  else:
+                      lines.append(f"- run_count: `{len(mem.get('runs', []))}`")
+                      lines.append(f"- has_last_report: `{bool(mem.get('last_report'))}`")
+                      lines.append(f"- has_last_full_report: `{bool(mem.get('last_full_report'))}`")
+
+          lines.append('')
+          lines.append('## Quick diagnosis guide')
+          lines.append('- project_scan fails before run_research -> registry/plan/wiring issue')
+          lines.append('- branch_count = 0 -> orchestrator or decomposer issue')
+          lines.append('- focus_claim_present = False -> memory branch resolution issue')
+          lines.append('- only_focus_prefix = False -> focused branching regression')
+          lines.append('- has_last_full_report = False -> focused run memory clobber regression')
+
+          summary_path.write_text('\n'.join(lines), encoding='utf-8')
+          print(summary_path.read_text())
+          PY
+
+      - name: Upload triage summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-triage-summary
+          if-no-files-found: warn
+          path: |
+            triage-summary.md
+            triage-artifacts
+
+      - name: Add job summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f triage-summary.md ]; then
+            cat triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No triage summary generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
