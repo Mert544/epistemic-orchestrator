@@ -6,6 +6,8 @@ from app.memory.persistent_memory import PersistentMemoryStore
 from app.orchestrator import FractalResearchOrchestrator
 from app.skills.decomposer import Decomposer
 from app.skills.evidence_mapper import EvidenceMapper
+from app.skills.execution.run_tests import RunTestsSkill
+from app.skills.safety.check_patch_scope import CheckPatchScopeSkill
 from app.skills.synthesizer import Synthesizer
 from app.skills.validator import Validator
 from app.tools.project_profile import ProjectProfiler
@@ -51,9 +53,37 @@ def run_research_skill(context: AutomationContext):
     return report_dict
 
 
+def run_tests_skill(context: AutomationContext):
+    result = RunTestsSkill().run(context.project_root)
+    result_dict = {
+        "project_root": result.project_root,
+        "commands": result.commands,
+        "results": result.results,
+        "ok": result.ok,
+    }
+    context.state["test_run"] = result_dict
+    return result_dict
+
+
+def check_patch_scope_skill(context: AutomationContext):
+    changed_files = context.state.get("changed_files", [])
+    result = CheckPatchScopeSkill().run(changed_files=changed_files)
+    result_dict = {
+        "ok": result.ok,
+        "changed_file_count": result.changed_file_count,
+        "max_allowed_files": result.max_allowed_files,
+        "touched_sensitive_paths": result.touched_sensitive_paths,
+        "reasons": result.reasons,
+    }
+    context.state["patch_scope"] = result_dict
+    return result_dict
+
+
 def build_default_registry() -> SkillAutomationRegistry:
     registry = SkillAutomationRegistry()
     registry.register("profile_project", profile_project_skill)
     registry.register("decompose_objective", decompose_objective_skill)
     registry.register("run_research", run_research_skill)
+    registry.register("run_tests", run_tests_skill)
+    registry.register("check_patch_scope", check_patch_scope_skill)
     return registry
