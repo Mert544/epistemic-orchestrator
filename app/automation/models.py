@@ -11,6 +11,8 @@ class AutomationContext:
     objective: str
     config: dict[str, Any]
     focus_branch: str | None = None
+    repo_url: str | None = None
+    workspace_dir: Path | None = None
     state: dict[str, Any] = field(default_factory=dict)
 
 
