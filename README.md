@@ -1,8 +1,8 @@
 <div align="center">
 
-# Epistemic Orchestrator
+# Apex Orchestrator
 
-### Constitutional fractal intelligence for codebases
+### Agents for fractal codebase intelligence
 
 **Scan deeper. Ask better questions. Focus the right branch.**
 
@@ -26,7 +26,7 @@ They give you one of these:
 - a one-shot summary
 - a vague “looks fine” answer
 
-**Epistemic Orchestrator goes further.**
+**Apex Orchestrator goes further.**
 
 It treats a codebase like a living reasoning surface:
 - extract structural claims
@@ -82,7 +82,7 @@ and deepen only that subtree.
 
 ## The pitch in one sentence
 
-**Epistemic Orchestrator is an agent brain for codebases: it scans, questions, prioritizes, remembers, and deepens the most valuable path instead of stopping at a shallow answer.**
+**Apex Orchestrator is an agent brain for codebases: it scans, questions, prioritizes, remembers, and deepens the most valuable path instead of stopping at a shallow answer.**
 
 ---
 
@@ -99,7 +99,7 @@ and deepen only that subtree.
 - branch focus mode
 - debug stats for duplicates, memory degradation, spam filtering, and focus hits/misses
 - grounded recommended actions
-- skill automation plans such as `project_scan` and `focused_branch`
+- skill automation plans such as `project_scan`, `focused_branch`, and `verify_project`
 
 ---
 
@@ -188,6 +188,14 @@ export EPISTEMIC_AUTOMATION_PLAN=project_scan
 python -m app.main
 ```
 
+Verify a project quickly:
+
+```bash
+export EPISTEMIC_TARGET_ROOT=/absolute/path/to/your/project
+export EPISTEMIC_AUTOMATION_PLAN=verify_project
+python -m app.main
+```
+
 Focus a branch:
 
 ```bash
@@ -247,6 +255,11 @@ Runs a structured sequence:
 ### `focused_branch`
 Runs focused research using the selected branch from memory.
 
+### `verify_project`
+Runs a quick verification loop:
+1. profile project
+2. execute detected test commands
+
 This moves the system from “a collection of skills” toward “an automation backbone.”
 
 ---
@@ -273,6 +286,9 @@ tests/
 
 examples/
 └── synthetic_shop/
+
+docs/
+└── branding.md
 ```
 
 ---
