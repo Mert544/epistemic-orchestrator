@@ -54,7 +54,7 @@ class TestDashboardUI:
     def test_dashboard_three_js(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
         assert b"three" in html
-        assert b"three.module.js" in html
+        assert b"esm.sh" in html
         assert b"OrbitControls" in html
         assert b"WebGLRenderer" in html
         assert b"PerspectiveCamera" in html

@@ -320,26 +320,26 @@ canvas { display: block; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-  }
-}
-</script>
-<!-- Fallback: force hide loading screen after 5s no matter what -->
+<!-- Error handling -->
 <script>
   window._apexForceHideLoading = setTimeout(function() {
     var el = document.getElementById("loading");
     if (el) { el.classList.add("hidden"); setTimeout(function(){el.remove();}, 500); }
     var err = document.getElementById("error-msg");
-    if (err && !window._apex3DLoaded) err.style.display = "block";
-  }, 5000);
+    if (err && !window._apex3DLoaded) {
+      err.style.display = "block";
+      err.textContent = "3D failed to load. Check internet & console for errors.";
+    }
+  }, 8000);
   window.addEventListener("error", function(e) {
-    console.error("Apex 3D Error:", e.message);
+    console.error("Apex 3D Error:", e.message, e.filename, e.lineno);
     var err = document.getElementById("error-msg");
-    if (err) { err.style.display = "block"; err.textContent = "3D Load Error: " + e.message; }
+    if (err) { err.style.display = "block"; err.textContent = "3D Error line " + e.lineno + ": " + e.message; }
+  });
+  window.addEventListener("unhandledrejection", function(e) {
+    console.error("Apex 3D Promise Error:", e.reason);
+    var err = document.getElementById("error-msg");
+    if (err) { err.style.display = "block"; err.textContent = "3D Promise Error: " + (e.reason && e.reason.message ? e.reason.message : String(e.reason)); }
   });
 </script>
 </head>
@@ -390,9 +390,24 @@ canvas { display: block; }
   </div>
 </div>
 
+<!-- Global stubs so HTML onclick never throws even if module fails -->
+<script>
+  window.closeDetail = function() {
+    var overlay = document.getElementById("detail-overlay");
+    var panel = document.getElementById("detail-panel");
+    if (overlay) overlay.classList.remove("open");
+    if (panel) panel.classList.remove("open");
+  };
+  window.openDetail = function(dept) {
+    document.getElementById("detail-title").textContent = dept;
+    document.getElementById("detail-overlay").classList.add("open");
+    document.getElementById("detail-panel").classList.add("open");
+  };
+</script>
+
 <script type="module">
-import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import * as THREE from "https://esm.sh/three@0.160.0";
+import { OrbitControls } from "https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 
 /* ── Clock ─────────────────────────────────────────── */
 function updateClock() {
