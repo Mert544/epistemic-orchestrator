@@ -5,6 +5,7 @@ from pathlib import Path
 from app.automation.models import AutomationContext
 from app.automation.registry import SkillAutomationRegistry
 from app.execution.patch_planner import PatchPlanner
+from app.execution.patch_request_generator import PatchRequestGenerator
 from app.execution.repair_loop import RepairLoop
 from app.execution.task_planner import TaskPlanner
 from app.execution.verifier import Verifier
@@ -116,6 +117,18 @@ def run_tests_skill(context: AutomationContext):
         "ok": result.ok,
     }
     context.state["test_run"] = result_dict
+    return result_dict
+
+
+def generate_patch_requests_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    patch_plan = context.state.get("patch_plan", {})
+    tasks = context.state.get("task_plan", {}).get("tasks", [])
+    task = tasks[0] if tasks else {}
+    result = PatchRequestGenerator().generate(project_root=target_root, patch_plan=patch_plan, task=task)
+    result_dict = result.to_dict()
+    context.state["patch_request_generation"] = result_dict
+    context.state["patch_requests"] = list(result.patch_requests)
     return result_dict
 
 
@@ -249,6 +262,7 @@ def build_default_registry() -> SkillAutomationRegistry:
     registry.register("prepare_workspace", prepare_workspace_skill)
     registry.register("clone_repo", clone_repo_skill)
     registry.register("run_tests", run_tests_skill)
+    registry.register("generate_patch_requests", generate_patch_requests_skill)
     registry.register("apply_patch", apply_patch_skill)
     registry.register("check_patch_scope", check_patch_scope_skill)
     registry.register("detect_sensitive_edit", detect_sensitive_edit_skill)
