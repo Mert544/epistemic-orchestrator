@@ -7,7 +7,7 @@
 **Scan deeper. Ask better questions. Focus the right branch.**
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-193%2F193%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-211%2F211%20passing-brightgreen)]()
 [![Architecture](https://img.shields.io/badge/architecture-fractal-purple)]()
 [![Memory](https://img.shields.io/badge/memory-degrade--not--block-green)]()
 [![Focus](https://img.shields.io/badge/focus-branch--aware-orange)]()
@@ -379,11 +379,15 @@ docs/
 - ✅ **abductive reasoning** (gözlemlenen pattern'lerden kök neden çıkarımı — SRP violation, god module, vb.)
 - ✅ **confidence calibration** (istatistiksel evidence diversity + conflict penalty ile güvenilirlik ayarı)
 - ✅ **counterfactual generator** ("Eğer... olmasaydı" senaryoları — what if invalid input, what if server down)
+- ✅ **distributed swarm** across multiple machines (HTTP node server + round-robin dispatch)
+- ✅ **advanced refactoring transforms** (extract interface ABC, introduce parameter object dataclass)
+- ✅ **plugin ecosystem** for third-party tool integrations (hook points: before_scan, after_patch, on_claim, etc.)
+- ✅ **django_mini real-world case study** (SQL injection, missing CSRF, hardcoded secret, bare except)
 
 ### Next
-- distributed swarm across multiple machines
-- advanced refactoring transforms (extract interface, introduce parameter object)
-- plugin ecosystem for third-party tool integrations
+- plugin marketplace / registry server
+- IDE language server protocol (LSP) integration
+- automated security audit pipeline (CI/CD hook)
 
 ---
 

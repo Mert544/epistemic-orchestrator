@@ -294,6 +294,62 @@ result = gen.generate({"text": "lacks input validation", "context": "def process
 # result.scenarios: ["What if an attacker provides None?", "What if..."]
 ```
 
+## Distributed Swarm
+
+Run Apex agents across multiple machines:
+
+```python
+from app.engine.distributed_swarm import DistributedSwarmCoordinator, SwarmNode, SwarmNodeServer
+
+# On remote machine
+server = SwarmNodeServer("worker-1", host="0.0.0.0", port=18765)
+server.register_task("scan", lambda payload: {"files": 42})
+server.start()
+
+# On coordinator
+coord = DistributedSwarmCoordinator([
+    SwarmNode("worker-1", "192.168.1.10", 18765),
+    SwarmNode("worker-2", "192.168.1.11", 18765),
+])
+result = coord.run("scan", [{"branch": "x.a"}, {"branch": "x.b"}])
+print(result.nodes_completed, result.aggregated_output)
+```
+
+## Advanced Refactoring
+
+Extract interface or introduce parameter object:
+
+```python
+from app.execution.advanced_refactoring import AdvancedRefactoringEngine
+
+# Create ABC from concrete class
+result = AdvancedRefactoringEngine.extract_interface(source_code, "UserService")
+print(result.new_content)  # class IUserService(ABC): ...
+
+# Bundle parameters into dataclass
+result = AdvancedRefactoringEngine.introduce_parameter_object(
+    source_code, "create_order", param_indices=[0, 1, 2]
+)
+print(result.new_content)  # @dataclass class CreateOrderParams: ...
+```
+
+## Plugin Ecosystem
+
+Register third-party hooks:
+
+```python
+from app.plugins.registry import PluginRegistry
+
+registry = PluginRegistry(plugin_dirs=["./plugins"])
+registry.load_all()
+
+# Plugins run automatically at hook points
+registry.run_hook("before_scan", {"target_root": "/path/to/project"})
+registry.run_hook("after_patch", {"changed_files": [...]})
+```
+
+Hook points: `before_scan`, `after_scan`, `before_patch`, `after_patch`, `before_test`, `after_test`, `on_claim`, `on_report`
+
 ## Adding a New Skill
 
 1. Implement skill function in `app/automation/skills.py`
