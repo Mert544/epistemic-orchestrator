@@ -108,6 +108,12 @@ class FractalResearchOrchestrator:
             report.known_claim_count = memory_summary.get("known_claim_count", 0)
             report.known_question_count = memory_summary.get("known_question_count", 0)
             report.previous_run_count = memory_summary.get("previous_run_count", 0)
+            report.estimated_memory_tokens = (report.known_claim_count * 8) + (report.known_question_count * 8)
+            report.estimated_total_tokens = (
+                report.estimated_analysis_tokens
+                + report.estimated_response_tokens
+                + report.estimated_memory_tokens
+            )
         return report
 
     def _resolve_focus_branch(self, focus_branch: str) -> tuple[str | None, str | None]:
