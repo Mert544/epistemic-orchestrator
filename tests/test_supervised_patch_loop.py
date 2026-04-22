@@ -14,6 +14,7 @@ def _write(path: Path, content: str) -> None:
 def _build_demo_project(root: Path) -> None:
     _write(root / "app" / "services" / "order_service.py", "def checkout(total: float) -> float:\n    return total\n")
     _write(root / "tests" / "test_order_service.py", "from app.services.order_service import checkout\n\n\ndef test_checkout():\n    assert checkout(10.0) == 10.0\n")
+    _write(root / "README.md", "demo project\n")
     _write(root / "pyproject.toml", "[project]\nname = 'demo-loop'\nversion = '0.0.1'\n")
 
 
@@ -40,6 +41,7 @@ def test_failure_analysis_detects_scope_failure():
             "reasons": ["Patch scope too large: 7 files changed, max allowed is 5."],
         },
         "sensitive_edit": {"ok": True, "touched_sensitive_paths": []},
+        "patch_apply": {"ok": True},
     }
 
     result = AnalyzeFailureLogSkill().run(verification).to_dict()
@@ -48,24 +50,49 @@ def test_failure_analysis_detects_scope_failure():
     assert "Reduce the changed file set" in result["recommended_next_step"]
 
 
-def test_supervised_patch_loop_produces_repair_suggestion(tmp_path: Path):
+def test_failure_analysis_detects_patch_apply_failure():
+    verification = {
+        "test_summary": {"ok": True, "results": []},
+        "patch_scope": {"ok": True, "reasons": []},
+        "sensitive_edit": {"ok": True, "touched_sensitive_paths": []},
+        "patch_apply": {"ok": False, "error": "No patch_requests provided."},
+    }
+
+    result = AnalyzeFailureLogSkill().run(verification).to_dict()
+
+    assert result["primary_failure_type"] == "patch_apply_failure"
+    assert "patch input" in result["recommended_next_step"].lower()
+
+
+def test_supervised_patch_loop_applies_patch_and_produces_repair_suggestion(tmp_path: Path):
     _build_demo_project(tmp_path)
     runner = SkillAutomationRunner(build_default_registry())
+    context = _make_context(tmp_path)
+    context.state["patch_requests"] = [
+        {
+            "path": "README.md",
+            "new_content": "demo project\nupdated by supervised apply loop\n",
+        }
+    ]
 
-    result = runner.run_plan("supervised_patch_loop", _make_context(tmp_path))
+    result = runner.run_plan("supervised_patch_loop", context)
 
     assert [step.step_name for step in result.steps] == [
         "run_research",
         "plan_tasks",
         "plan_patch",
+        "apply_patch",
         "verify_changes",
         "repair_from_verification",
     ]
     assert all(step.status == "ok" for step in result.steps)
+    assert result.steps[3].output["ok"] is True
+    assert result.steps[3].output["changed_files"] == ["README.md"]
     assert result.final_output["failure_analysis"]["primary_failure_type"] in {
         "no_failure_detected",
         "patch_scope_failure",
         "sensitive_edit",
         "test_failure",
+        "patch_apply_failure",
     }
     assert "repair_suggestion" in result.final_output
