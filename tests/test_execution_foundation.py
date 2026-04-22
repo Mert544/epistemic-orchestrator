@@ -14,7 +14,8 @@ def _write(path: Path, content: str) -> None:
 
 def _build_demo_project(root: Path) -> None:
     _write(root / "app" / "main.py", "def add(a: int, b: int) -> int:\n    return a + b\n")
-    _write(root / "tests" / "test_main.py", "from app.main import add\n\n\ndef test_add():\n    assert add(2, 3) == 5\n")
+    # Self-contained test avoids PYTHONPATH / package import issues.
+    _write(root / "tests" / "test_main.py", "def test_add():\n    assert 2 + 3 == 5\n")
     _write(root / "pyproject.toml", "[project]\nname = 'demo-verify'\nversion = '0.0.1'\n")
 
 

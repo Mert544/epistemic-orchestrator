@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 
@@ -28,3 +30,5 @@ class FinalReport(BaseModel):
     estimated_response_tokens: int = 0
     estimated_memory_tokens: int = 0
     estimated_total_tokens: int = 0
+    telemetry: dict[str, Any] = Field(default_factory=dict)
+    mode: str = "balanced"

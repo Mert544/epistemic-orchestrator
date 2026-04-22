@@ -92,7 +92,7 @@ class ProjectProfiler:
                 profile.entrypoints.append(rel_str)
             if name_lower.startswith("test_") or "/tests/" in f"/{rel_lower}/" or rel_lower.startswith("tests/"):
                 profile.test_files.append(rel_str)
-            if ".github/workflows/" in rel_lower:
+            if ".github" in rel_lower and "workflows" in rel_lower:
                 profile.ci_files.append(rel_str)
             if name_lower in self.CONFIG_NAMES:
                 profile.config_files.append(rel_str)

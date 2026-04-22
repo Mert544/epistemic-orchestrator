@@ -23,11 +23,14 @@ def test_project_profiler_extracts_basic_project_signals(tmp_path: Path):
 
     profile = ProjectProfiler(tmp_path).profile()
 
+    def _posix(paths: list[str]) -> list[str]:
+        return [str(Path(p).as_posix()) for p in paths]
+
     assert profile.total_files >= 5
-    assert "app/main.py" in profile.entrypoints
+    assert "app/main.py" in _posix(profile.entrypoints)
     assert any(path.endswith("ci.yml") for path in profile.ci_files)
     assert any(path.endswith("pyproject.toml") for path in profile.config_files)
     assert any("auth" in path.lower() for path in profile.sensitive_paths)
-    assert "app/main.py" in profile.dependency_hubs
-    assert "app/main.py" in profile.symbol_hubs
-    assert "auth/token_service.py" in profile.untested_modules
+    assert "app/main.py" in _posix(profile.dependency_hubs)
+    assert "app/main.py" in _posix(profile.symbol_hubs)
+    assert "auth/token_service.py" in _posix(profile.untested_modules)

@@ -31,3 +31,15 @@ class GitAdapter:
 
     def current_branch(self, repo_dir: str | Path) -> CommandResult:
         return self.runner.run(CommandSpec(command=["git", "branch", "--show-current"], cwd=Path(repo_dir)))
+
+    def diff_stat(self, repo_dir: str | Path) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "diff", "--stat"], cwd=Path(repo_dir)))
+
+    def log_oneline(self, repo_dir: str | Path, count: int = 5) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "log", "--oneline", f"-{count}"], cwd=Path(repo_dir)))
+
+    def add(self, repo_dir: str | Path, paths: list[str]) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "add", "--", *paths], cwd=Path(repo_dir)))
+
+    def commit(self, repo_dir: str | Path, message: str) -> CommandResult:
+        return self.runner.run(CommandSpec(command=["git", "commit", "-m", message], cwd=Path(repo_dir)))

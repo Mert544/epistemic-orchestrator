@@ -22,8 +22,13 @@ def test_test_linker_maps_modules_to_tests_and_critical_gaps(tmp_path: Path):
     )
 
     linker = TestLinker(tmp_path)
-    coverage = linker.analyze(critical_modules=["services/order_service.py", "app/router.py"])
+    # Normalize critical_modules to OS-native paths so cross-platform comparison works.
+    coverage = linker.analyze(critical_modules=[str(Path("services/order_service.py")), str(Path("app/router.py"))])
 
-    assert coverage.module_to_tests["app/router.py"] == ["tests/test_router.py"]
-    assert coverage.module_to_tests["services/order_service.py"] == []
-    assert "services/order_service.py" in coverage.critical_untested_modules
+    def _posix_dict(d: dict[str, list[str]]) -> dict[str, list[str]]:
+        return {str(Path(k).as_posix()): [str(Path(v).as_posix()) for v in vals] for k, vals in d.items()}
+
+    m2t = _posix_dict(coverage.module_to_tests)
+    assert m2t["app/router.py"] == ["tests/test_router.py"]
+    assert m2t["services/order_service.py"] == []
+    assert "services/order_service.py" in [str(Path(p).as_posix()) for p in coverage.critical_untested_modules]

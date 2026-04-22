@@ -3,9 +3,12 @@ from __future__ import annotations
 from typing import Any
 
 from app.engine.budget import BudgetController
+from app.engine.compressed_mode import CompressedModeEngine
 from app.engine.execution_loop import ExecutionLoop
 from app.engine.novelty import NoveltyScorer
 from app.engine.termination import TerminationEngine
+from app.execution.token_telemetry import TokenTelemetry
+from app.llm.router import LLMRouter
 from app.memory.graph_store import GraphStore
 from app.models.enums import NodeStatus, StopReason
 from app.models.node import ResearchNode
@@ -27,11 +30,19 @@ from app.utils.branching import make_branch_path
 
 class FractalResearchOrchestrator:
     def __init__(self, config: dict[str, Any], decomposer, validator, synthesizer, memory_store=None) -> None:
-        self.config = config
+        # Apply compressed mode overrides if configured
+        self._compressed = CompressedModeEngine(config)
+        self.config = self._compressed.config
+
         self.decomposer = decomposer
         self.validator = validator
         self.synthesizer = synthesizer
         self.memory_store = memory_store
+
+        # Telemetry + optional LLM
+        budget_limit = int(self.config.get("token_budget_limit", 0))
+        self.telemetry = TokenTelemetry(budget_limit=budget_limit)
+        self.llm = LLMRouter.from_config(self.config)
 
         self.graph = GraphStore()
         self.assumption_extractor = AssumptionExtractor()
@@ -42,8 +53,8 @@ class FractalResearchOrchestrator:
         self.security_governor = SecurityGovernor()
         self.spam_guard = SpamGuard()
         self.novelty_scorer = NoveltyScorer(self.graph)
-        self.budget = BudgetController(max_total_nodes=int(config["max_total_nodes"]))
-        self.termination = TerminationEngine(config)
+        self.budget = BudgetController(max_total_nodes=int(self.config["max_total_nodes"]))
+        self.termination = TerminationEngine(self.config)
         self.execution_loop = ExecutionLoop()
         self.memory_state = self.memory_store.hydrate_graph(self.graph) if self.memory_store is not None else {}
         self.debug_stats = {
@@ -101,6 +112,12 @@ class FractalResearchOrchestrator:
         report.focus_branch = focus_branch
         report.focus_claim = focus_claim
         report.debug_stats = dict(self.debug_stats)
+        report.mode = self._compressed.mode
+
+        # Record telemetry for this run
+        self.telemetry.record_analysis(objective)
+        self.telemetry.record_response(report.model_dump_json())
+
         if self.memory_store is not None:
             memory_summary = self.memory_store.persist_run(objective, report, self.graph.get_all_nodes())
             report.memory_file = memory_summary.get("memory_file")
@@ -114,6 +131,21 @@ class FractalResearchOrchestrator:
                 + report.estimated_response_tokens
                 + report.estimated_memory_tokens
             )
+            self.telemetry.record_memory(report.model_dump_json())
+
+        # Attach telemetry snapshot to report
+        snap = self.telemetry.snapshot()
+        report.telemetry = snap.to_dict()
+
+        # Apply compressed mode report trimming if active
+        if self._compressed.mode == "compressed":
+            report_dict = report.model_dump()
+            compressed = self._compressed.compress_report(report_dict)
+            # Update report fields from compressed dict
+            for key in ("main_findings", "branch_map", "recommended_actions", "key_risks"):
+                if key in compressed:
+                    setattr(report, key, compressed[key])
+
         return report
 
     def _resolve_focus_branch(self, focus_branch: str) -> tuple[str | None, str | None]:

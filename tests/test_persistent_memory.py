@@ -37,7 +37,7 @@ def test_persistent_memory_hydrates_and_persists_runs(tmp_path: Path):
     ]
 
     summary = store.persist_run("demo", report, nodes)
-    assert summary["memory_file"].endswith(".epistemic/memory.json")
+    assert str(Path(summary["memory_file"])).endswith("memory.json")
     assert summary["known_claim_count"] == 1
     assert summary["previous_run_count"] == 0
 

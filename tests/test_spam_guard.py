@@ -8,7 +8,9 @@ def test_spam_guard_filters_nested_meta_claims():
         "Dependency hub claim: the files app/services/order_service.py appear central in the import graph and should be expanded first for dependency risk and architectural coupling.",
     ]
 
-    filtered = guard.filter_claims(claims, parent_claim="Dependency hub claim: the files app/services/order_service.py appear central in the import graph and should be expanded first for dependency risk and architectural coupling.")
+    # Parent claim must differ from the child claims so the duplicate filter does not remove both.
+    parent_claim="Dependency hub claim: the files app/services/order_service.py, app/payments/gateway.py appear central in the import graph and should be expanded first for dependency risk and architectural coupling."
+    filtered = guard.filter_claims(claims, parent_claim=parent_claim)
 
     assert len(filtered) == 1
     assert filtered[0].startswith("Dependency hub claim:")

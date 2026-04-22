@@ -1,16 +1,22 @@
 <div align="center">
 
-# Apex Orchestrator
+# 🧠 Apex Orchestrator
 
 ### Agents for fractal codebase intelligence
 
 **Scan deeper. Ask better questions. Focus the right branch.**
 
-![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-![Architecture](https://img.shields.io/badge/architecture-fractal-purple)
-![Memory](https://img.shields.io/badge/memory-degrade--not--block-green)
-![Focus](https://img.shields.io/badge/focus-branch--aware-orange)
-![License](https://img.shields.io/badge/license-Apache%202.0-black)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![Tests](https://img.shields.io/badge/tests-79%2F79%20passing-brightgreen)]()
+[![Architecture](https://img.shields.io/badge/architecture-fractal-purple)]()
+[![Memory](https://img.shields.io/badge/memory-degrade--not--block-green)]()
+[![Focus](https://img.shields.io/badge/focus-branch--aware-orange)]()
+[![Autonomy](https://img.shields.io/badge/autonomy-supervised%20→%20guarded-yellow)]()
+[![License](https://img.shields.io/badge/license-Apache%202.0-black)](LICENSE)
+
+> **Apex Orchestrator** is a branch-aware, memory-aware, supervised engineering agent that evolves toward guarded autonomous coding. It doesn't just read your codebase — it *reasons* about it.
+
+[Quick Start](#quick-start) · [Core Concepts](#what-makes-it-different) · [Automation Plans](#automation-plans) · [Safety](#safety-first) · [Roadmap](#roadmap)
 
 </div>
 
@@ -295,37 +301,40 @@ docs/
 
 ## Roadmap
 
-### Now
-- stabilize automation, memory, spam guard, and branch focus
-- strengthen e2e validation
-- expand runtime foundation
+### Completed
+- ✅ stabilize automation, memory, spam guard, and branch focus
+- ✅ semantic patch generation (AST-based, no LLM required)
+- ✅ retry repair loop with controlled retry budget
+- ✅ git diff / commit / PR summary closing loop
+- ✅ token telemetry with budget enforcement
+- ✅ compressed operator mode for token efficiency
+- ✅ modular LLM router (default: none, optional: openai/local)
 
 ### Next
-- supervised patch loop
-- test execution skills
-- patch application and verification
-- safety guardrails for controlled code changes
+- stronger safety governor (max line diff, restricted paths, review policies)
+- multi-model routing and cost-aware provider selection
+- IDE / MCP server integration
+- community docs and contribution guidelines
 
 ### Later
-- repair loop
-- draft PR automation
-- richer execution skills
-- full guarded autonomous coding workflows
+- full autonomous workflow with self-directed research + patch + PR
+- multi-agent swarm coordination
+- advanced AST transforms (refactor, extract, inline)
 
 ---
 
 ## Project status
 
-**Current state:** strong internal alpha / working core
+**Current state:** strong internal alpha → beta transition
 
 Today it is strongest as:
-- repo intelligence engine
-- fractal analysis system
-- branch-focused research agent
-- memory-aware planning brain
+- repo intelligence engine with fractal reasoning
+- memory-aware planning and branch-focused research agent
+- **supervised autonomous coding agent** (semantic patch + retry + git/PR)
+- token-budget-aware execution system
+- optional LLM integration without mandatory external dependencies
 
-It is **not yet** a full end-to-end autonomous coding agent.
-That is the next stage of the roadmap.
+It can now run end-to-end: research → plan → patch → verify → retry → commit → PR summary.
 
 ---
 

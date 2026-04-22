@@ -7,10 +7,15 @@ from app.automation.registry import SkillAutomationRegistry
 from app.execution.patch_planner import PatchPlanner
 from app.execution.patch_request_generator import PatchRequestGenerator
 from app.execution.repair_loop import RepairLoop
+from app.execution.retry_engine import RetryEngine
+from app.execution.semantic_patch_generator import SemanticPatchGenerator
 from app.execution.task_planner import TaskPlanner
+from app.execution.pr_summary_generator import PRSummaryGenerator
+from app.execution.token_telemetry import TokenTelemetry
 from app.execution.verifier import Verifier
 from app.memory.persistent_memory import PersistentMemoryStore
 from app.orchestrator import FractalResearchOrchestrator
+from app.runtime.git_adapter import GitAdapter
 from app.skills.decomposer import Decomposer
 from app.skills.evidence_mapper import EvidenceMapper
 from app.skills.execution.apply_patch import ApplyPatchSkill, FilePatch
@@ -19,6 +24,7 @@ from app.skills.execution.prepare_workspace import PrepareWorkspaceSkill
 from app.skills.execution.run_tests import RunTestsSkill
 from app.skills.safety.check_patch_scope import CheckPatchScopeSkill
 from app.skills.safety.detect_sensitive_edit import DetectSensitiveEditSkill
+from app.skills.safety.enhanced_safety_governor import EnhancedSafetyGovernor
 from app.skills.synthesizer import Synthesizer
 from app.skills.validator import Validator
 from app.tools.project_profile import ProjectProfiler
@@ -128,6 +134,18 @@ def generate_patch_requests_skill(context: AutomationContext):
     result = PatchRequestGenerator().generate(project_root=target_root, patch_plan=patch_plan, task=task)
     result_dict = result.to_dict()
     context.state["patch_request_generation"] = result_dict
+    context.state["patch_requests"] = list(result.patch_requests)
+    return result_dict
+
+
+def generate_semantic_patch_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    patch_plan = context.state.get("patch_plan", {})
+    tasks = context.state.get("task_plan", {}).get("tasks", [])
+    task = tasks[0] if tasks else {}
+    result = SemanticPatchGenerator().generate(project_root=target_root, patch_plan=patch_plan, task=task)
+    result_dict = result.to_dict()
+    context.state["semantic_patch_generation"] = result_dict
     context.state["patch_requests"] = list(result.patch_requests)
     return result_dict
 
@@ -243,6 +261,148 @@ def repair_from_verification_skill(context: AutomationContext):
     return result_dict
 
 
+def repair_with_retry_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    verification = context.state.get("verification", {})
+    patch_plan = context.state.get("patch_plan", {})
+    tasks = context.state.get("task_plan", {}).get("tasks", [])
+    task = tasks[0] if tasks else {}
+    max_retries = int(context.config.get("max_retries", 1))
+    result = RetryEngine(max_retries=max_retries).run(
+        project_root=target_root,
+        verification=verification,
+        patch_plan=patch_plan,
+        task=task,
+    )
+    result_dict = result.to_dict()
+    context.state["retry_engine"] = result_dict
+    # If retry succeeded, update changed_files to reflect final state
+    if result.status == "success":
+        context.state["changed_files"] = list(result.changed_files)
+    return result_dict
+
+
+def git_diff_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    git = GitAdapter()
+    diff_result = git.diff_stat(target_root)
+    status_result = git.status(target_root)
+    result_dict = {
+        "ok": diff_result.ok and status_result.ok,
+        "diff_stat": diff_result.stdout,
+        "status_short": status_result.stdout,
+        "project_root": str(Path(target_root).resolve()),
+    }
+    context.state["git_diff"] = result_dict
+    return result_dict
+
+
+def git_commit_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    changed_files = context.state.get("changed_files", [])
+    patch_plan = context.state.get("patch_plan", {})
+    tasks = context.state.get("task_plan", {}).get("tasks", [])
+    task = tasks[0] if tasks else {}
+    title = str(task.get("title", patch_plan.get("title", "Apex Orchestrator patch")))
+    git = GitAdapter()
+    # Stage only files we actually changed
+    if changed_files:
+        git.add(target_root, changed_files)
+    commit_result = git.commit(target_root, message=f"{title.strip('.')}")
+    result_dict = {
+        "ok": commit_result.ok,
+        "stdout": commit_result.stdout,
+        "stderr": commit_result.stderr,
+        "commit_message": title.strip("."),
+        "project_root": str(Path(target_root).resolve()),
+    }
+    context.state["git_commit"] = result_dict
+    return result_dict
+
+
+def generate_pr_summary_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    changed_files = context.state.get("changed_files", [])
+    patch_plan = context.state.get("patch_plan", {})
+    tasks = context.state.get("task_plan", {}).get("tasks", [])
+    task = tasks[0] if tasks else {}
+    verification = context.state.get("verification", {})
+    git_diff = context.state.get("git_diff", {})
+    result = PRSummaryGenerator().generate(
+        project_root=target_root,
+        changed_files=changed_files,
+        patch_plan=patch_plan,
+        task=task,
+        verification=verification,
+        git_diff_stat=git_diff.get("diff_stat", ""),
+    )
+    result_dict = result.to_dict()
+    context.state["pr_summary"] = result_dict
+    return result_dict
+
+
+def record_telemetry_skill(context: AutomationContext):
+    """Record token telemetry for the current run state."""
+    telemetry = TokenTelemetry(budget_limit=int(context.config.get("token_budget_limit", 0)))
+    # Replay known state into telemetry
+    for key in context.state:
+        val = context.state[key]
+        if isinstance(val, dict):
+            telemetry.record_skill_call(key, input_text=str(val), output_text=str(val))
+        elif isinstance(val, str):
+            telemetry.record_skill_call(key, input_text=val, output_text=val)
+    snap = telemetry.snapshot()
+    context.state["telemetry"] = snap.to_dict()
+    return snap.to_dict()
+
+
+def export_token_report_skill(context: AutomationContext):
+    """Export a JSON token report to .apex/telemetry/ directory."""
+    import json
+    import os
+    from datetime import datetime, timezone
+
+    target_root = _target_root(context)
+    telemetry_data = context.state.get("telemetry", {})
+    if not telemetry_data:
+        telemetry_data = record_telemetry_skill(context)
+
+    apex_dir = Path(target_root) / ".apex" / "telemetry"
+    apex_dir.mkdir(parents=True, exist_ok=True)
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    report_path = apex_dir / f"run-{run_id}.json"
+    report = {
+        "run_id": run_id,
+        "objective": context.objective,
+        "telemetry": telemetry_data,
+        "state_keys": list(context.state.keys()),
+    }
+    report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+    result_dict = {
+        "ok": True,
+        "report_path": str(report_path),
+        "run_id": run_id,
+    }
+    context.state["token_report"] = result_dict
+    return result_dict
+
+
+def enhanced_safety_check_skill(context: AutomationContext):
+    target_root = _target_root(context)
+    changed_files = context.state.get("changed_files", [])
+    governor = EnhancedSafetyGovernor(context.config)
+    file_diffs = governor.compute_line_diffs(target_root, changed_files)
+    result = governor.evaluate(changed_files, file_diffs)
+    result_dict = result.to_dict()
+    context.state["enhanced_safety"] = result_dict
+    # If policy requires human review, mark verification as failed
+    if result.requires_human_review:
+        context.state["verification"] = context.state.get("verification", {})
+        context.state["verification"]["enhanced_safety"] = result_dict
+        context.state["verification"]["ok"] = False
+    return result_dict
+
+
 def _target_root(context: AutomationContext):
     target_root = context.project_root
     if context.workspace_dir is not None:
@@ -263,6 +423,7 @@ def build_default_registry() -> SkillAutomationRegistry:
     registry.register("clone_repo", clone_repo_skill)
     registry.register("run_tests", run_tests_skill)
     registry.register("generate_patch_requests", generate_patch_requests_skill)
+    registry.register("generate_semantic_patch", generate_semantic_patch_skill)
     registry.register("apply_patch", apply_patch_skill)
     registry.register("check_patch_scope", check_patch_scope_skill)
     registry.register("detect_sensitive_edit", detect_sensitive_edit_skill)
@@ -270,4 +431,11 @@ def build_default_registry() -> SkillAutomationRegistry:
     registry.register("plan_patch", plan_patch_skill)
     registry.register("verify_changes", verify_changes_skill)
     registry.register("repair_from_verification", repair_from_verification_skill)
+    registry.register("repair_with_retry", repair_with_retry_skill)
+    registry.register("git_diff", git_diff_skill)
+    registry.register("git_commit", git_commit_skill)
+    registry.register("generate_pr_summary", generate_pr_summary_skill)
+    registry.register("record_telemetry", record_telemetry_skill)
+    registry.register("export_token_report", export_token_report_skill)
+    registry.register("enhanced_safety_check", enhanced_safety_check_skill)
     return registry

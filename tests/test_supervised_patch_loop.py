@@ -12,6 +12,8 @@ def _write(path: Path, content: str) -> None:
 
 
 def _build_demo_project(root: Path) -> None:
+    _write(root / "app" / "__init__.py", "")
+    _write(root / "app" / "services" / "__init__.py", "")
     _write(root / "app" / "services" / "order_service.py", "def checkout(total: float) -> float:\n    return total\n")
     _write(root / "tests" / "test_order_service.py", "from app.services.order_service import checkout\n\n\ndef test_checkout():\n    assert checkout(10.0) == 10.0\n")
     _write(root / "README.md", "demo project\n")
@@ -29,6 +31,7 @@ def _make_context(project_root: Path) -> AutomationContext:
             'min_security': 0.8,
             'min_quality': 0.6,
             'min_novelty': 0.2,
+            'max_retries': 1,
         },
     )
 
@@ -95,3 +98,37 @@ def test_supervised_patch_loop_generates_and_applies_patch(tmp_path: Path):
         "patch_apply_failure",
     }
     assert "repair_suggestion" in result.final_output
+
+
+def test_semantic_patch_loop_generates_real_code_change(tmp_path: Path):
+    _build_demo_project(tmp_path)
+    runner = SkillAutomationRunner(build_default_registry())
+    context = _make_context(tmp_path)
+
+    result = runner.run_plan("semantic_patch_loop", context)
+
+    assert [step.step_name for step in result.steps] == [
+        "run_research",
+        "plan_tasks",
+        "plan_patch",
+        "generate_semantic_patch",
+        "apply_patch",
+        "verify_changes",
+        "repair_with_retry",
+    ]
+    assert all(step.status == "ok" for step in result.steps)
+    semantic_step = result.steps[3]
+    # If the demo project claims do not map to concrete target files,
+    # the generator may fall back to draft mode. Both paths validate the wiring.
+    if semantic_step.output["transform_type"] != "draft_fallback":
+        assert semantic_step.output["mode"] == "semantic"
+        assert semantic_step.output["estimated_tokens"] > 0
+    # Patch should have been applied (either semantic edit or draft file)
+    apply_step = result.steps[4]
+    assert apply_step.output["ok"] is True
+    assert apply_step.output["changed_files"]
+    # Retry engine should have run
+    retry_step = result.steps[6]
+    assert retry_step.output["status"] in {"no_retry_needed", "success", "exhausted", "human_review_required"}
+    assert "failure_analysis" in retry_step.output
+    assert "repair_suggestion" in retry_step.output

@@ -10,12 +10,15 @@ def test_synthetic_demo_project_emits_expected_signals():
 
     profile = ProjectProfiler(demo_root).profile()
 
-    assert "app/main.py" in profile.entrypoints
+    def _posix(paths: list[str]) -> list[str]:
+        return [str(Path(p).as_posix()) for p in paths]
+
+    assert "app/main.py" in _posix(profile.entrypoints)
     assert any(path.endswith("pyproject.toml") for path in profile.config_files)
     assert any("auth" in path.lower() for path in profile.sensitive_paths)
-    assert any(path.endswith("order_service.py") for path in profile.dependency_hubs)
-    assert any(path.endswith("token_service.py") for path in profile.untested_modules)
-    assert any(path.endswith("order_service.py") for path in profile.critical_untested_modules)
+    assert any(path.endswith("order_service.py") for path in _posix(profile.dependency_hubs))
+    assert any(path.endswith("token_service.py") for path in _posix(profile.untested_modules))
+    assert any(path.endswith("order_service.py") for path in _posix(profile.critical_untested_modules))
 
 
 def test_synthetic_demo_project_seeds_high_value_claims():

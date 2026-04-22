@@ -5,3 +5,31 @@ min_security: 0.80
 min_quality: 0.60
 min_novelty: 0.20
 mode: balanced
+max_retries: 1
+
+# Token budget: 0 means unlimited
+token_budget_limit: 0
+
+# LLM provider: none | openai | local (default none = no external calls)
+llm:
+  provider: none
+  api_key: ""
+  base_url: "https://api.openai.com/v1"
+  model: "gpt-4o-mini"
+  max_tokens: 2048
+  temperature: 0.2
+  max_tokens_per_call: 2048
+
+# Safety governor policy
+safety:
+  max_changed_files: 5
+  max_line_diff_per_file: 50
+  restricted_paths:
+    - ".env*"
+    - ".env.*"
+    - "secrets/**"
+    - "**/secrets/**"
+    - "*.key"
+    - "*.pem"
+    - ".ssh/**"
+  review_policy: block_sensitive  # auto | human_required | block_sensitive
