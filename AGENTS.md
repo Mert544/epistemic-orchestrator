@@ -130,28 +130,6 @@ print(result.aggregated_output["branch_map"])
 - Hata durumunda graceful degradation
 - Sonuçları otomatik birleştirir ve duplicate'leri temizler
 
-## Dashboard (3D Isometric Office)
-
-Gerçek zamanlı monitoring için **3D izometrik ofis dashboard**:
-
-```bash
-# 3D ofis dashboard'u başlat
-python -m app.engine.dashboard --port 8080
-```
-
-Açıldığında `http://127.0.0.1:8080` adresinden erişilir.
-
-### Özellikler
-- **3D izometrik görünüm** — `rotateX(60deg) rotateZ(-35deg)` ile gerçek 3D hissi
-- **10 departman (oda)** — Her biri CSS 3D kutu: tavan, ön duvar, yan duvar
-- **10 pixel-art çalışan** — Her biri kendi odasında, CSS `box-shadow` ile sıfır dependency
-- **Animasyonlar** — Typing, scanning, coffee-sip, walking (saf CSS keyframes)
-- **Hover metric'leri** — Her odanın üzerinde holografik veri etiketi belirir
-- **LED status** — Her odada renkli durum ışığı (yeşil/sarı/kırmızı/mavi)
-- **Ticker bandı** — Canlı olay akışı
-- **Detay paneli** — Tıklayınca glassmorphism modal açılır
-- **Dark theme** — Navy arka plan, cam duvarlar, grid zemin
-
 ## MCP Server Integration
 
 Apex Orchestrator exposes its capabilities as an MCP server.

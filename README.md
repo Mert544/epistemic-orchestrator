@@ -7,7 +7,7 @@
 **Scan deeper. Ask better questions. Focus the right branch.**
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-204%2F204%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-193%2F193%20passing-brightgreen)]()
 [![Architecture](https://img.shields.io/badge/architecture-fractal-purple)]()
 [![Memory](https://img.shields.io/badge/memory-degrade--not--block-green)]()
 [![Focus](https://img.shields.io/badge/focus-branch--aware-orange)]()
@@ -218,87 +218,6 @@ export EPISTEMIC_AUTOMATION_PLAN=focused_branch
 export EPISTEMIC_FOCUS_BRANCH=x.a.b
 python -m app.main
 ```
-
----
-
----
-
-## 🏢 3D Smart Office Dashboard
-
-*Your codebase isn't just files — it's a living company. Walk the floor.*
-
-Apex Orchestrator ships with a **fully interactive 3D Isometric Office Dashboard** that transforms abstract code intelligence into a living, breathing office building. Every engine module is a room. Every skill is an employee. Every room has depth, walls, and a worker inside.
-
-```
-                    🏢 Apex Corp. HQ — 3D Isometric Office
-                           |
-                           |  perspective: 1400px
-                           v
-              ┌─────────────────────────────────────┐
-             /│  Reception  │  Board    │  Dev      │\
-            / │    👩‍💼      │   👨‍💼     │   👨‍💻      │ \
-           /  │    Maria    │   Boss    │   Coder   │  \
-          /   ├─────────────┼───────────┼───────────┤   \
-         /    │  Security   │  R&D Lab  │   QA Lab  │    \
-        /     │    👮       │   👩‍🔬      │   👩‍🔬      │     \
-       /      │    Guard    │   Prof    │   Tester  │      \
-      /       ├─────────────┴───────────┴───────────┤       \
-     /        │    ☕ Break Room    🏋️ Gym           │        \
-    /         │      👨‍🍳 Barista      🧘‍♂️ Coach      │         \
-   /          └─────────────────────────────────────┘          \
-  /                      isometric floor                        \
- /───────────────────────────────────────────────────────────────\
-```
-
-### Your Team (10 SVG Vector Employees in 3D)
-
-Every employee is a **hand-crafted SVG vector character** with full body proportions, facial expressions, clothing, and accessories — all drawn with native SVG shapes (`<ellipse>`, `<rect>`, `<circle>`, `<path>`). Zero images. Zero CDN. Zero dependencies.
-
-| Department | Employee | Engine Module | 3D Animation |
-|---|---|---|---|
-| **Reception** | 👩‍💼 Maria | `ProjectProfiler` | Welcomes visitors |
-| **Board Room** | 👨‍💼 Boss | `SmartPlanner` | Strategizes at the top |
-| **Dev Office** | 👨‍💻 Coder | `SemanticPatchGenerator` | ⌨️ **Typing** (keys moving) |
-| **QA Lab** | 👩‍🔬 Tester | `AbductiveReasoner` | Inspects with precision |
-| **Security Office** | 👮 Guard | `EnhancedSafetyGovernor` | 🔄 **Scanning** (rotates left-right) |
-| **R&D Lab** | 👩‍🔬 Prof | `RecursiveReflectionEngine` | 💡 **Deep thought** |
-| **Archive Room** | 📦 Archie | `CrossRunTracker` | Organizes history |
-| **HR / Swarm** | 👥 Team | `SwarmCoordinator` | Manages parallel teams |
-| **☕ Break Room** | 👨‍🍳 Barista | `TokenTelemetry` | ☕ **Sipping coffee** (bobs up-down) |
-| **🏋️ Gym** | 🧘‍♂️ Coach | `SystemHealth` | 🏃 **Walking** (side-to-side) |
-
-### What Makes It Special
-
-- **🧊 True 3D Isometric View** — `rotateX(60deg) rotateZ(-35deg)` with `preserve-3d`. Every room has a roof, front wall, and side wall. You are looking *down* at the building.
-- **🎨 10 SVG Vector Characters** — Each employee is a detailed vector illustration: head, eyes, mouth, hair, torso, arms, hands, legs, shoes, and job-specific accessories (glasses, headset, clipboard, coffee cup, flashlight, apron, etc.). No images. No CDN. Zero dependencies.
-- **📊 Floating Live Metrics** — Hover any room and a holographic metric label appears above it.
-- **🔴🟡🟢 Room Status LEDs** — Each room has a pulsing colored dot: Green = idle, Yellow = busy, Red = alert, Blue = thinking.
-- **📰 Scrolling Ticker** — Live event feed from all departments at the bottom.
-- **🖱️ Click Any Room** — Opens a centered glassmorphism detail panel with full metrics and actions.
-- **🌑 Dark Theme** — Deep navy background with glass walls and subtle grid floor. Feels like a real NOC/SOC control room.
-- **📱 Responsive Scaling** — Auto-scales on mobile and tablets.
-
-### Launch the 3D Office
-
-```bash
-# Start the dashboard
-python -m app.engine.dashboard --port 8080
-
-# Open your browser
-open http://127.0.0.1:8080
-```
-
-*No build step. No npm install. No Three.js. No WebGL. Just pure CSS 3D transforms.*
-
-### API Endpoints
-
-| Endpoint | Description |
-|---|---|
-| `GET /` | The full 3D Isometric Office HTML dashboard |
-| `GET /api/status` | Project root, file count, last run |
-| `GET /api/telemetry` | Session cost, token usage |
-| `GET /api/departments` | All 10 departments with live status |
-| `GET /api/ticker` | Recent events from all engines |
 
 ---
 
