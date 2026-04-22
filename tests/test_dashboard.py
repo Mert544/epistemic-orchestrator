@@ -38,7 +38,8 @@ class TestDashboardUI:
     def test_dashboard_index(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
         assert b"Apex Corp. HQ" in html
-        assert b"3D Isometric Office Dashboard" in html
+        assert b"Real 3D Office" in html
+        assert b"Three.js WebGL" in html
         assert b"Reception" in html
         assert b"Board Room" in html
         assert b"Dev Office" in html
@@ -50,41 +51,37 @@ class TestDashboardUI:
         assert b"Break Room" in html
         assert b"Gym" in html
 
-    def test_dashboard_3d_structure(self, dashboard_server):
+    def test_dashboard_three_js(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
-        assert b"scene-container" in html
-        assert b"scene" in html
-        assert b"floor" in html
-        assert b"room-3d" in html
-        assert b"face-top" in html
-        assert b"face-front" in html
-        assert b"face-right" in html
-        assert b"preserve-3d" in html
-        assert b"rotateX(60deg)" in html
+        assert b"three" in html
+        assert b"three.module.js" in html
+        assert b"OrbitControls" in html
+        assert b"WebGLRenderer" in html
+        assert b"PerspectiveCamera" in html
+        assert b"Scene" in html
 
-    def test_dashboard_svg_characters(self, dashboard_server):
+    def test_dashboard_3d_geometry(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
-        assert b"worker-svg" in html
-        assert b"viewBox=\"0 0 80 100\"" in html
-        # Check SVG body parts (rects for legs, circles for heads, etc.)
-        assert b"<ellipse" in html
-        assert b"<rect" in html
-        assert b"<circle" in html
-        assert b"<path" in html
-
-    def test_dashboard_animations(self, dashboard_server):
-        html = _http_get("http://127.0.0.1:18686/")
-        assert b"typing-arm-left" in html
-        assert b"flashlight-beam" in html
-        assert b"steam-1" in html
-        assert b"thought-bubble" in html
+        assert b"BoxGeometry" in html
+        assert b"SphereGeometry" in html
+        assert b"MeshStandardMaterial" in html
+        assert b"AmbientLight" in html
+        assert b"DirectionalLight" in html
 
     def test_dashboard_interactivity(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
+        assert b"raycaster" in html
+        assert b"OrbitControls" in html
         assert b"openDetail" in html
         assert b"closeDetail" in html
-        assert b'detail-panel' in html
-        assert b'detail-overlay' in html
+        assert b"detail-panel" in html
+        assert b"detail-overlay" in html
+
+    def test_dashboard_animations(self, dashboard_server):
+        html = _http_get("http://127.0.0.1:18686/")
+        assert b"requestAnimationFrame" in html
+        assert b"animate" in html
+        assert b"rotation" in html
 
     def test_dashboard_dark_theme(self, dashboard_server):
         html = _http_get("http://127.0.0.1:18686/")
