@@ -20,6 +20,16 @@ class AnalyzeFailureLogSkill:
         test_summary = verification.get("test_summary", {}) or {}
         patch_scope = verification.get("patch_scope", {}) or {}
         sensitive_edit = verification.get("sensitive_edit", {}) or {}
+        patch_apply = verification.get("patch_apply", {}) or {}
+
+        if not patch_apply.get("ok", True):
+            message = patch_apply.get("error") or "Patch application failed before verification."
+            return FailureAnalysis(
+                primary_failure_type="patch_apply_failure",
+                failing_commands=[],
+                summary=[message],
+                recommended_next_step="Check patch input, file expectations, and target paths before retrying patch apply.",
+            )
 
         failing_commands: list[list[str]] = []
         for result in test_summary.get("results", []) or []:
