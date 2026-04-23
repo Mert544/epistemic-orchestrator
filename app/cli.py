@@ -34,41 +34,39 @@ def cmd_agents(args: argparse.Namespace) -> int:
     agent_type = args.agent_type
 
     if agent_type == "security":
-        from examples.helper_agents.security_agent import SecurityAgent
-        agent = SecurityAgent(target)
-        report = agent.scan()
-        print(json.dumps(report.to_dict(), indent=2))
+        from app.agents.skills import SecurityAgent
+        agent = SecurityAgent()
+        result = agent.run(project_root=target)
+        print(json.dumps(result, indent=2))
 
     elif agent_type == "docstring":
-        from examples.helper_agents.docstring_agent import DocstringAgent
-        agent = DocstringAgent(target)
-        report = agent.scan()
-        print(f"Found {len(report.gaps)} missing docstrings")
-        if args.patch:
-            patched = agent.patch()
-            print(f"Patched {len(patched)} files: {patched}")
-        print(json.dumps(report.to_dict(), indent=2))
+        from app.agents.skills import DocstringAgent
+        agent = DocstringAgent()
+        result = agent.run(project_root=target, patch=args.patch)
+        print(f"Found {result['gaps_found']} missing docstrings")
+        if result['patched_files']:
+            print(f"Patched {len(result['patched_files'])} files: {result['patched_files']}")
+        print(json.dumps(result, indent=2))
 
     elif agent_type == "test-stub":
-        from examples.helper_agents.test_stub_agent import TestStubAgent
-        agent = TestStubAgent(target)
-        report = agent.scan()
-        print(f"Coverage: {report.coverage_ratio * 100:.0f}% ({report.tested_functions}/{report.total_functions})")
-        if args.generate:
-            generated = agent.generate_stubs()
-            print(f"Generated {len(generated)} test stubs: {generated}")
-        print(json.dumps(report.to_dict(), indent=2))
+        from app.agents.skills import TestStubAgent
+        agent = TestStubAgent()
+        result = agent.run(project_root=target, generate=args.generate)
+        print(f"Coverage: {result['coverage_ratio'] * 100:.0f}% ({result['tested_functions']}/{result['total_functions']})")
+        if result['stubs_generated']:
+            print(f"Generated {len(result['stubs_generated'])} test stubs: {result['stubs_generated']}")
+        print(json.dumps(result, indent=2))
 
     elif agent_type == "dependency":
-        from examples.helper_agents.dependency_agent import DependencyAgent
-        agent = DependencyAgent(target)
-        report = agent.analyze()
-        print(f"Modules: {report.total_modules}, Edges: {len(report.edges)}")
-        if report.circular_imports:
-            print(f"Circular imports detected: {len(report.circular_imports)}")
-        if report.orphaned_modules:
-            print(f"Orphaned modules: {report.orphaned_modules}")
-        print(json.dumps(report.to_dict(), indent=2))
+        from app.agents.skills import DependencyAgent
+        agent = DependencyAgent()
+        result = agent.run(project_root=target)
+        print(f"Modules: {result['total_modules']}, Edges: {result['total_edges']}")
+        if result['circular_imports']:
+            print(f"Circular imports detected: {len(result['circular_imports'])}")
+        if result['orphaned_modules']:
+            print(f"Orphaned modules: {result['orphaned_modules']}")
+        print(json.dumps(result, indent=2))
 
     else:
         print(f"Unknown agent type: {agent_type}")
