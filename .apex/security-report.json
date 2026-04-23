@@ -1,12 +1,12 @@
 {
   "project_root": "C:\\Users\\salio\\Apex-orchestrator",
   "summary": {
-    "total_files": 937,
-    "functions_analyzed": 1023,
-    "total_risks": 1019,
+    "total_files": 963,
+    "functions_analyzed": 1061,
+    "total_risks": 1045,
     "critical": 0,
     "high": 21,
-    "medium": 998,
+    "medium": 1024,
     "low": 0
   },
   "risks": {
@@ -549,6 +549,126 @@
         "risk_score": 0.2
       },
       {
+        "file": "app/agents/dashboard.py",
+        "function": "DashboardHandler.do_GET",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "DashboardHandler._send_json",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "DashboardHandler._send_html",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "DashboardHandler.log_message",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "ConsensusDashboard.__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "ConsensusDashboard._load_html",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "ConsensusDashboard.stop",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "ConsensusDashboard.url",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "do_GET",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "_send_json",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "_send_html",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "log_message",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "_load_html",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "stop",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/dashboard.py",
+        "function": "url",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/debate.py",
+        "function": "DebateResult.to_dict",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/debate.py",
+        "function": "DebateEngine.__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/debate.py",
+        "function": "to_dict",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/debate.py",
+        "function": "__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
         "file": "app/agents/evaluator.py",
         "function": "ClaimEvaluator.__init__",
         "risk": "missing_docstring",
@@ -594,6 +714,42 @@
         "file": "app/agents/evaluator.py",
         "function": "to_dict",
         "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "LLMVoter.__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "LLMVoter.vote",
+        "risk": "too_many_arguments (6)",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "LLMVoter._llm_vote",
+        "risk": "too_many_arguments (6)",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "vote",
+        "risk": "too_many_arguments (6)",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/llm_voter.py",
+        "function": "_llm_vote",
+        "risk": "too_many_arguments (6)",
         "risk_score": 0.1
       },
       {
