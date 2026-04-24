@@ -6,6 +6,7 @@ from typing import Any
 
 from app.agents.base import Agent
 from app.agents.consensus import ConsensusEngine, ConsensusResult, Verdict, Vote
+from app.agents.memory import AgentMemory
 from app.agents.skills import SecurityAgent, DocstringAgent, TestStubAgent, DependencyAgent
 
 
@@ -17,6 +18,8 @@ class ClaimEvaluator:
     - DocstringAgent: "Is this claim well-documented?"
     - TestStubAgent: "Can this claim be tested?"
     - DependencyAgent: "Is this claim architecturally sound?"
+
+    Supports memory: remembers past evaluations and fast-paths similar claims.
     """
 
     ROLE_WEIGHTS = {
@@ -26,8 +29,9 @@ class ClaimEvaluator:
         "architecture_analyst": 1.2,
     }
 
-    def __init__(self, consensus_strategy: str = "majority", quorum: int = 2) -> None:
+    def __init__(self, consensus_strategy: str = "majority", quorum: int = 2, memory_dir: str | None = None) -> None:
         self.consensus = ConsensusEngine(strategy=consensus_strategy, quorum=quorum)
+        self.memory = AgentMemory(memory_dir=memory_dir)
         self.agents: dict[str, Agent] = {}
         self._init_default_panel()
 
@@ -38,15 +42,32 @@ class ClaimEvaluator:
         self.agents["dependency"] = DependencyAgent(name="dependency")
 
     def evaluate(self, claim: str, context: dict[str, Any] | None = None) -> ConsensusResult:
-        """Run all agents as reviewers on a single claim."""
+        """Run all agents as reviewers on a single claim.
+
+        Uses memory cache if this claim (or a very similar one) was evaluated before.
+        """
+        # Check memory first
+        cached_votes = self.memory.recall(claim)
+        if cached_votes is not None:
+            result = self.consensus.evaluate(claim, cached_votes)
+            result.metadata["cached"] = True
+            return result
+
         votes: list[Vote] = []
         ctx = context or {}
 
         for name, agent in self.agents.items():
             vote = self._agent_review(agent, claim, ctx)
+            # Apply learned confidence boost if available
+            learned = self.memory.get_learned_confidence(vote.agent_role, claim)
+            if learned is not None:
+                vote.confidence = (vote.confidence + learned) / 2
             votes.append(vote)
 
-        return self.consensus.evaluate(claim, votes)
+        result = self.consensus.evaluate(claim, votes)
+        # Store in memory
+        self.memory.remember(claim, votes, result.final_verdict.name)
+        return result
 
     def evaluate_batch(self, claims: list[str], context: dict[str, Any] | None = None) -> list[ConsensusResult]:
         return [self.evaluate(claim, context) for claim in claims]

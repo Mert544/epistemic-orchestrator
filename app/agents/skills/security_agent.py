@@ -103,6 +103,11 @@ class SecurityAgent(Agent):
 
         for pattern, (risk_type, severity, suggestion) in self.CRITICAL_PATTERNS.items():
             if pattern in func_name:
+                # False positive filters
+                if pattern == "compile" and any(safe in func_name for safe in ("re.compile", "regex.compile")):
+                    continue
+                if pattern == "eval" and "literal_eval" in func_name:
+                    continue
                 line = getattr(node, "lineno", 1)
                 findings.append(
                     {

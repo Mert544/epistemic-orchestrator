@@ -1,17 +1,53 @@
 {
   "project_root": "C:\\Users\\salio\\Apex-orchestrator",
   "summary": {
-    "total_files": 295,
-    "functions_analyzed": 1041,
-    "total_risks": 1029,
+    "total_files": 297,
+    "functions_analyzed": 1059,
+    "total_risks": 1043,
     "critical": 0,
-    "high": 21,
-    "medium": 1008,
+    "high": 27,
+    "medium": 1016,
     "low": 0
   },
   "risks": {
     "critical": [],
     "high": [
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory._load",
+        "risk": "Dynamic import \u2014 potential code injection",
+        "risk_score": 0.4
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory._load",
+        "risk": "missing_docstring",
+        "risk_score": 0.4
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory.remember",
+        "risk": "Dynamic import \u2014 potential code injection",
+        "risk_score": 0.3
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "_load",
+        "risk": "Dynamic import \u2014 potential code injection",
+        "risk_score": 0.4
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "_load",
+        "risk": "missing_docstring",
+        "risk_score": 0.4
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "remember",
+        "risk": "Dynamic import \u2014 potential code injection",
+        "risk_score": 0.3
+      },
       {
         "file": "app/execution/pr_summary_generator.py",
         "function": "PRSummaryGenerator._build_body",
@@ -654,6 +690,54 @@
         "file": "app/agents/llm_voter.py",
         "function": "_llm_vote",
         "risk": "too_many_arguments (6)",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory.__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory._hash",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory._save",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "AgentMemory.stats",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "__init__",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "_hash",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "_save",
+        "risk": "missing_docstring",
+        "risk_score": 0.1
+      },
+      {
+        "file": "app/agents/memory.py",
+        "function": "stats",
+        "risk": "missing_docstring",
         "risk_score": 0.1
       },
       {
