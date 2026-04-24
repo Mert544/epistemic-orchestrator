@@ -45,6 +45,10 @@ class AgentBus:
         if len(self._history) > self._max_history:
             self._history = self._history[-self._max_history :]
 
+        # Ensure topic exists in subscriber map so stats reflect it
+        if msg.topic not in self._subscribers:
+            self._subscribers[msg.topic] = []
+
         subscribers = self._subscribers.get(msg.topic, [])
         for agent_name, handler in subscribers:
             if msg.recipient is None or msg.recipient == agent_name:
