@@ -17,9 +17,21 @@ class AgentRegistry:
         self._factories: dict[str, Callable[..., Agent]] = {}
         self._instances: dict[str, Agent] = {}
 
-    def register(self, agent_type: str, factory: Callable[..., Agent]) -> None:
-        """Register an agent factory by type name."""
-        self._factories[agent_type] = factory
+    def register(self, agent_type: str, factory: Callable[..., Agent] | None = None) -> None:
+        """Register an agent factory by type name, or an instance directly."""
+        if factory is not None:
+            self._factories[agent_type] = factory
+
+    def register_instance(self, agent: Agent) -> None:
+        """Register an existing agent instance."""
+        self._instances[agent.name] = agent
+
+    def get_by_role(self, role_substring: str) -> Agent | None:
+        """Find first agent whose role contains the substring."""
+        for agent in self._instances.values():
+            if role_substring.lower() in agent.role.lower():
+                return agent
+        return None
 
     def create(self, agent_type: str, name: str, **kwargs: Any) -> Agent:
         """Create a new agent instance."""
@@ -38,6 +50,10 @@ class AgentRegistry:
 
     def list_instances(self) -> list[str]:
         return list(self._instances.keys())
+
+    @property
+    def agents(self) -> dict[str, Agent]:
+        return self._instances
 
     def remove(self, name: str) -> None:
         if name in self._instances:
