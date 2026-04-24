@@ -18,7 +18,7 @@ class PhaseMetrics:
     def end(self, phase: str) -> None:
         start = self._start_times.pop(phase, None)
         if start is not None:
-            elapsed = (time.perf_counter() - start) * 1000
+            elapsed = time.perf_counter() - start
             self.phases[phase] = self.phases.get(phase, 0.0) + elapsed
 
     def to_dict(self) -> dict[str, float]:
