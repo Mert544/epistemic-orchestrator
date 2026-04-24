@@ -205,6 +205,65 @@ def cmd_plugin_uninstall(args: argparse.Namespace) -> int:
     return 1
 
 
+def cmd_daemon(args: argparse.Namespace) -> int:
+    from app.daemon import ApexDaemon
+
+    if args.action == "start":
+        if ApexDaemon.is_running():
+            print("[daemon] Already running.")
+            return 1
+        daemon = ApexDaemon(
+            goal=args.goal,
+            interval_sec=args.interval,
+            target=args.target or str(_get_project_root()),
+            mode=args.mode,
+        )
+        daemon.start()
+        return 0
+
+    if args.action == "stop":
+        if ApexDaemon.stop_running():
+            print("[daemon] Stopped.")
+            return 0
+        print("[daemon] Not running.")
+        return 1
+
+    if args.action == "status":
+        if ApexDaemon.is_running():
+            print("[daemon] Running.")
+            return 0
+        print("[daemon] Not running.")
+        return 0
+
+    print(f"Unknown daemon action: {args.action}")
+    return 1
+
+
+def cmd_hook(args: argparse.Namespace) -> int:
+    from app.hook_installer import GitHookInstaller
+
+    target = Path(args.target).resolve() if args.target else _get_project_root()
+
+    if args.action == "install":
+        try:
+            path = GitHookInstaller.install(target)
+            print(f"[hook] Installed pre-commit hook to {path}")
+            return 0
+        except Exception as exc:
+            print(f"[hook] Failed to install: {exc}")
+            return 1
+
+    if args.action == "uninstall":
+        if GitHookInstaller.uninstall(target):
+            print("[hook] Uninstalled pre-commit hook.")
+            return 0
+        print("[hook] No Apex hook found.")
+        return 1
+
+    print(f"Unknown hook action: {args.action}")
+    return 1
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     from app.intent.parser import IntentParser
     from app.automation.planner import AutonomousPlanner
@@ -295,6 +354,21 @@ def main() -> int:
     run_parser.add_argument("--target", default="", help="Target project root")
     run_parser.add_argument("--mode", default="supervised", choices=["report", "supervised", "autonomous"], help="Execution mode")
     run_parser.set_defaults(func=cmd_run)
+
+    # daemon
+    daemon_parser = subparsers.add_parser("daemon", help="Run Apex periodically in the background")
+    daemon_parser.add_argument("action", choices=["start", "stop", "status"], help="Daemon action")
+    daemon_parser.add_argument("--goal", default="scan project", help="Goal to run periodically")
+    daemon_parser.add_argument("--interval", type=int, default=3600, help="Interval in seconds")
+    daemon_parser.add_argument("--target", default="", help="Target project root")
+    daemon_parser.add_argument("--mode", default="report", choices=["report", "supervised", "autonomous"], help="Execution mode for daemon runs")
+    daemon_parser.set_defaults(func=cmd_daemon)
+
+    # hook
+    hook_parser = subparsers.add_parser("hook", help="Manage git hooks")
+    hook_parser.add_argument("action", choices=["install", "uninstall"], help="Hook action")
+    hook_parser.add_argument("--target", default="", help="Target project root")
+    hook_parser.set_defaults(func=cmd_hook)
 
     args = parser.parse_args()
     if hasattr(args, "func"):
