@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 from app.agents.base import Agent, AgentMessage
 from app.agents.recursive import RecursiveAgent
 from app.engine.fractal_5whys import Fractal5WhysEngine
 from app.engine.fractal_patch_generator import FractalPatchGenerator
+from app.engine.fractal_cache import FractalCache
 
 
 class BaseFractalAgent(RecursiveAgent):
@@ -13,14 +15,18 @@ class BaseFractalAgent(RecursiveAgent):
 
     Subclasses implement `_scan()` to return raw findings.
     Base class automatically runs fractal 5-Whys + meta-analysis + optional auto-patch.
+    Supports caching and parallel analysis.
     """
 
     def __init__(self, name: str, role: str, bus=None, context=None) -> None:
         super().__init__(name=name, role=role, bus=bus, context=context)
         self.fractal_engine = Fractal5WhysEngine(max_depth=5)
         self.patch_generator = FractalPatchGenerator()
+        self.cache = FractalCache()
         self.max_fractal_budget = 10
-        self.auto_patch = False  # Set True to auto-apply recommended patches
+        self.auto_patch = False
+        self.parallel = True
+        self.max_workers = 4
 
     def _scan(self, project_root: str, **kwargs: Any) -> dict[str, Any]:
         """Override in subclass. Must return dict with 'findings' list."""
@@ -30,24 +36,19 @@ class BaseFractalAgent(RecursiveAgent):
         scan_result = self._scan(project_root, **kwargs)
         findings = scan_result.get("findings", [])
 
-        fractal_trees = []
-        meta_results = []
-        generated_patches = []
         budget = min(len(findings), self.max_fractal_budget)
+        targets = findings[:budget]
 
-        for finding in findings[:budget]:
-            tree = self.spawn_fractal_analyzer(finding, max_depth)
-            if tree:
-                fractal_trees.append(tree.to_dict())
-                meta = self.fractal_engine.meta_analyze(tree)
-                meta_results.append(meta.to_dict())
+        if self.parallel and len(targets) > 1:
+            results = self._analyze_parallel(targets, max_depth)
+        else:
+            results = [self._analyze_one(f, max_depth) for f in targets]
 
-                if meta.recommended_action == "patch":
-                    patches = self.patch_generator.generate(finding, meta.to_dict())
-                    generated_patches.extend([p.to_dict() for p in patches])
-                    if self.auto_patch:
-                        for p in patches:
-                            self.patch_generator.apply(p, project_root)
+        fractal_trees = [r["tree"] for r in results if r["tree"]]
+        meta_results = [r["meta"] for r in results if r["meta"]]
+        generated_patches = []
+        for r in results:
+            generated_patches.extend(r.get("patches", []))
 
         return {
             "agent": self.name,
@@ -61,6 +62,40 @@ class BaseFractalAgent(RecursiveAgent):
             "generated_patches": generated_patches,
             "patches_applied": sum(1 for p in generated_patches if p.get("applied")),
         }
+
+    def _analyze_one(self, finding: dict[str, Any], max_depth: int) -> dict[str, Any]:
+        """Analyze a single finding with cache check."""
+        cached = self.cache.get(finding)
+        if cached:
+            tree = cached
+        else:
+            tree = self.spawn_fractal_analyzer(finding, max_depth)
+            if tree:
+                self.cache.put(finding, tree)
+
+        if not tree:
+            return {"tree": None, "meta": None, "patches": []}
+
+        meta = self.fractal_engine.meta_analyze(tree)
+        patches = []
+        if meta.recommended_action == "patch":
+            patches = [p.to_dict() for p in self.patch_generator.generate(finding, meta.to_dict())]
+            if self.auto_patch:
+                for p in patches:
+                    self.patch_generator.apply(p, ".")
+
+        return {
+            "tree": tree.to_dict(),
+            "meta": meta.to_dict(),
+            "patches": patches,
+        }
+
+    def _analyze_parallel(self, findings: list[dict[str, Any]], max_depth: int) -> list[dict[str, Any]]:
+        """Analyze findings in parallel using thread pool."""
+        workers = min(self.max_workers, len(findings))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(self._analyze_one, f, max_depth) for f in findings]
+            return [f.result() for f in futures]
 
     def spawn_fractal_analyzer(self, finding: dict[str, Any], max_depth: int) -> Any:
         engine = Fractal5WhysEngine(max_depth=max_depth)
