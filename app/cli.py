@@ -264,6 +264,39 @@ def cmd_hook(args: argparse.Namespace) -> int:
     return 1
 
 
+def cmd_report(args: argparse.Namespace) -> int:
+    from app.reporting.composer import ReportComposer
+
+    input_file = Path(args.input)
+    if not input_file.exists():
+        print(f"[report] Input file not found: {input_file}")
+        return 1
+
+    try:
+        data = json.loads(input_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        print(f"[report] Invalid JSON: {exc}")
+        return 1
+
+    results = data.get("swarm_results", data.get("results", []))
+    composer = ReportComposer(results)
+
+    fmt = args.format.lower()
+    output = Path(args.output)
+    if fmt == "markdown":
+        composer.to_markdown(output)
+    elif fmt == "html":
+        composer.to_html(output)
+    elif fmt == "sarif":
+        composer.to_sarif(output)
+    else:
+        print(f"[report] Unknown format: {fmt}")
+        return 1
+
+    print(f"[report] {fmt.upper()} report written to {output}")
+    return 0
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     from app.intent.parser import IntentParser
     from app.automation.planner import AutonomousPlanner
@@ -363,6 +396,13 @@ def main() -> int:
     daemon_parser.add_argument("--target", default="", help="Target project root")
     daemon_parser.add_argument("--mode", default="report", choices=["report", "supervised", "autonomous"], help="Execution mode for daemon runs")
     daemon_parser.set_defaults(func=cmd_daemon)
+
+    # report
+    report_parser = subparsers.add_parser("report", help="Generate report from run results")
+    report_parser.add_argument("--input", required=True, help="Input JSON file from a previous run")
+    report_parser.add_argument("--format", default="markdown", choices=["markdown", "html", "sarif"], help="Output format")
+    report_parser.add_argument("--output", required=True, help="Output file path")
+    report_parser.set_defaults(func=cmd_report)
 
     # hook
     hook_parser = subparsers.add_parser("hook", help="Manage git hooks")
