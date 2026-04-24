@@ -153,24 +153,34 @@ def cmd_plugin_list(_args: argparse.Namespace) -> int:
 def cmd_consensus(args: argparse.Namespace) -> int:
     from app.agents.evaluator import ClaimEvaluator
 
-    evaluator = ClaimEvaluator(consensus_strategy=args.strategy, quorum=args.quorum)
+    import time
+    memory_dir = str(_get_project_root() / ".apex") if args.use_memory else None
+    evaluator = ClaimEvaluator(consensus_strategy=args.strategy, quorum=args.quorum, memory_dir=memory_dir)
     claims = args.claims.split(";") if args.claims else []
     if not claims:
         print("No claims provided. Use --claims='claim1;claim2;claim3'")
         return 1
 
+    start = time.perf_counter()
     results = evaluator.evaluate_batch(claims)
+    elapsed = time.perf_counter() - start
+
     approved = [r for r in results if r.final_verdict.name == "APPROVE"]
     rejected = [r for r in results if r.final_verdict.name == "REJECT"]
     abstained = [r for r in results if r.final_verdict.name == "ABSTAIN"]
+    cached = [r for r in results if r.metadata.get("cached")]
 
     print(f"\n=== CONSENSUS RESULTS ({args.strategy}) ===")
     print(f"Total: {len(results)} | Approved: {len(approved)} | Rejected: {len(rejected)} | Abstained: {len(abstained)}")
+    if args.use_memory:
+        print(f"Cached: {len(cached)} | Memory entries: {evaluator.memory.stats()['total_entries']}")
+    print(f"Time: {elapsed:.3f}s")
     print()
 
     for result in results:
+        cached_mark = " [CACHED]" if result.metadata.get("cached") else ""
         status_icon = "[OK]" if result.final_verdict.name == "APPROVE" else "[NO]" if result.final_verdict.name == "REJECT" else "[--]"
-        print(f"{status_icon} {result.claim[:80]}...")
+        print(f"{status_icon}{cached_mark} {result.claim[:80]}...")
         print(f"   Verdict: {result.final_verdict.name} (confidence: {result.confidence:.2f})")
         for vote in result.votes:
             icon = "+" if vote.verdict.name == result.final_verdict.name else "-"
@@ -221,6 +231,7 @@ def main() -> int:
     consensus_parser.add_argument("--strategy", default="majority", choices=["unanimous", "majority", "supermajority", "weighted", "threshold"], help="Consensus strategy")
     consensus_parser.add_argument("--quorum", type=int, default=2, help="Minimum votes required")
     consensus_parser.add_argument("--json", action="store_true", help="Output raw JSON")
+    consensus_parser.add_argument("--use-memory", action="store_true", help="Enable persistent agent memory for caching and learning")
     consensus_parser.set_defaults(func=cmd_consensus)
 
     # plugin

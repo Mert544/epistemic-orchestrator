@@ -1,12 +1,12 @@
 {
   "project_root": "C:\\Users\\salio\\Apex-orchestrator",
   "summary": {
-    "total_files": 297,
+    "total_files": 299,
     "functions_analyzed": 1059,
-    "total_risks": 1043,
+    "total_risks": 1044,
     "critical": 0,
     "high": 27,
-    "medium": 1016,
+    "medium": 1017,
     "low": 0
   },
   "risks": {
@@ -228,7 +228,13 @@
         "file": "app/cli.py",
         "function": "cmd_consensus",
         "risk": "missing_docstring",
-        "risk_score": 0.1
+        "risk_score": 0.2
+      },
+      {
+        "file": "app/cli.py",
+        "function": "cmd_consensus",
+        "risk": "long_function (34 lines)",
+        "risk_score": 0.2
       },
       {
         "file": "app/cli.py",
@@ -245,7 +251,7 @@
       {
         "file": "app/cli.py",
         "function": "main",
-        "risk": "long_function (35 lines)",
+        "risk": "long_function (36 lines)",
         "risk_score": 0.2
       },
       {
