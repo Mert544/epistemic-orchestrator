@@ -675,3 +675,68 @@ Automatically runs on every PR:
 ```
 
 Posts findings as PR comments. Fails CI on critical risks.
+
+---
+
+## Fractal 5-Whys Deep Analysis
+
+Every finding triggers recursive root-cause analysis:
+
+```python
+from app.engine.fractal_5whys import Fractal5WhysEngine
+
+engine = Fractal5WhysEngine(max_depth=5)
+tree = engine.analyze({"issue": "eval() usage", "file": "app/auth.py"})
+print(engine.summarize_tree(tree))
+```
+
+Levels:
+1. **What** is the risk? (surface)
+2. **Why** does it exist? (cause)
+3. **Why** was it introduced? (origin)
+4. **Why** wasn't it caught? (process gap)
+5. **Why** does the system allow it? (architecture gap)
+
+### Fractal-Aware Agents
+
+All core agents support fractal analysis via `BaseFractalAgent`:
+
+```python
+from app.agents.fractal_agents import FractalSecurityAgent, FractalDocstringAgent, FractalTestStubAgent
+
+# Security with 5-Whys depth
+agent = FractalSecurityAgent()
+result = agent.run(project_root=".", max_depth=5)
+
+# Docstring gaps with root-cause analysis
+agent = FractalDocstringAgent()
+result = agent.run(project_root=".", max_depth=5)
+
+# Missing tests with coverage-gap analysis
+agent = FractalTestStubAgent()
+result = agent.run(project_root=".", max_depth=5)
+```
+
+### CLI
+
+```bash
+# Analyze project with fractal depth
+apex fractal analyze --target=. --depth=5
+
+# Render 5-Whys tree for a single finding
+apex fractal tree --finding='{"issue":"eval()","file":"a.py"}' --depth=5
+```
+
+### Report Integration
+
+Fractal trees automatically appear in reports:
+
+```python
+from app.reporting.composer import ReportComposer
+
+composer = ReportComposer(results)  # results include fractal_trees
+composer.to_markdown("report.md")
+composer.to_html("report.html")
+```
+
+Reports render each finding with nested L1→L5 analysis, confidence scores, and evidence.
