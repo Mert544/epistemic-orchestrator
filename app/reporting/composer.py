@@ -31,8 +31,10 @@ class ReportComposer:
         for result in self.results:
             agent_name = result.get("agent", "unknown")
             findings = result.get("findings", [])
+            fractal_trees = result.get("fractal_trees", [])
             lines.append(f"## {agent_name}")
             lines.append(f"- **Findings:** {len(findings)}")
+            lines.append(f"- **Fractal Analyses:** {len(fractal_trees)}")
             for f in findings:
                 sev = f.get("severity", "info")
                 icon = "🔴" if sev == "critical" else "🟠" if sev == "high" else "🟡"
@@ -41,16 +43,64 @@ class ReportComposer:
                     lines.append(f"   💡 {f['suggestion']}")
             lines.append("")
 
+            # Fractal 5-Whys trees
+            if fractal_trees:
+                lines.append("### 🔬 Fractal Deep Analysis")
+                for tree in fractal_trees:
+                    lines.append(self._render_fractal_tree(tree))
+                lines.append("")
+
         md = "\n".join(lines)
         if path:
             Path(path).write_text(md, encoding="utf-8")
         return md
 
+    def _render_fractal_tree(self, tree: dict[str, Any], indent: int = 0) -> str:
+        """Render a fractal 5-Whys tree as Markdown."""
+        lines = []
+        q = tree.get("question", "")
+        a = tree.get("answer", "")
+        conf = tree.get("confidence", 0.0)
+        level = tree.get("level", 1)
+        prefix = "  " * indent
+        icon = "🔴" if level == 1 else "🟠" if level == 2 else "🟡" if level == 3 else "🔵"
+        lines.append(f"{prefix}{icon} **L{level}:** {q}")
+        lines.append(f"{prefix}  → {a} (confidence: {conf:.0%})")
+        for evidence in tree.get("evidence", []):
+            lines.append(f"{prefix}  📎 {evidence}")
+        for child in tree.get("children", []):
+            lines.append(self._render_fractal_tree(child, indent + 1))
+        return "\n".join(lines)
+
+    def _render_fractal_tree_html(self, tree: dict[str, Any], indent: int = 0) -> str:
+        """Render a fractal 5-Whys tree as HTML."""
+        q = tree.get("question", "")
+        a = tree.get("answer", "")
+        conf = tree.get("confidence", 0.0)
+        level = tree.get("level", 1)
+        color = "#dc2626" if level == 1 else "#ea580c" if level == 2 else "#ca8a04" if level == 3 else "#2563eb"
+        children_html = ""
+        for child in tree.get("children", []):
+            children_html += self._render_fractal_tree_html(child, indent + 1)
+        evidence_html = ""
+        for ev in tree.get("evidence", []):
+            evidence_html += f'<div style="color:#666;font-size:0.85rem;margin-left:1rem;">📎 {ev}</div>'
+        return f"""
+        <div style="margin-left:{indent*1.5}rem;margin-top:0.5rem;padding:0.5rem;border-left:3px solid {color};background:#fafafa;">
+            <div style="font-weight:600;color:{color};">L{level}: {q}</div>
+            <div style="color:#333;margin-top:0.25rem;">→ {a} (confidence: {conf:.0%})</div>
+            {evidence_html}
+            {children_html}
+        </div>
+        """
+
     def to_html(self, path: str | Path | None = None) -> str:
         findings_html = []
+        fractal_html = []
         for result in self.results:
             agent_name = result.get("agent", "unknown")
             findings = result.get("findings", [])
+            fractal_trees = result.get("fractal_trees", [])
             for f in findings:
                 sev = f.get("severity", "info")
                 color = "#dc2626" if sev == "critical" else "#ea580c" if sev == "high" else "#ca8a04"
@@ -61,6 +111,15 @@ class ReportComposer:
                     <div style="color:#059669;font-size:0.85rem;margin-top:0.25rem;">{f.get('suggestion', '')}</div>
                 </div>
                 """)
+            for tree in fractal_trees:
+                fractal_html.append(self._render_fractal_tree_html(tree))
+
+        fractal_section = ""
+        if fractal_html:
+            fractal_section = f"""
+            <h2 style="margin-top:2rem;">🔬 Fractal Deep Analysis</h2>
+            {''.join(fractal_html)}
+            """
 
         html = f"""<!doctype html>
 <html><head><meta charset="utf-8"><title>Apex Report</title></head>
@@ -68,6 +127,7 @@ class ReportComposer:
 <h1>Apex Orchestrator Report</h1>
 <p style="color:#666;">Generated: {self.timestamp} | Agents: {len(self.results)}</p>
 {''.join(findings_html) if findings_html else '<p style="color:#666;">No findings.</p>'}
+{fractal_section}
 </body></html>"""
 
         if path:

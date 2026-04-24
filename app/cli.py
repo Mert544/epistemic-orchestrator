@@ -297,6 +297,34 @@ def cmd_report(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_fractal(args: argparse.Namespace) -> int:
+    """Run fractal deep analysis on a finding or project."""
+    target = Path(args.target).resolve() if args.target else _get_project_root()
+
+    if args.subcommand == "analyze":
+        from app.agents.fractal_agents import FractalSecurityAgent
+        agent = FractalSecurityAgent()
+        result = agent.run(project_root=target, max_depth=args.depth)
+        print(f"Scanned {result['scanned_files']} files, found {result['findings_count']} risks")
+        print(f"Fractal analyzed {result['fractal_analyzed']} findings (depth={args.depth})")
+        if args.json:
+            print(json.dumps(result, indent=2))
+        else:
+            from app.reporting.composer import ReportComposer
+            composer = ReportComposer([result])
+            md = composer.to_markdown()
+            print(md)
+
+    elif args.subcommand == "tree":
+        from app.engine.fractal_5whys import Fractal5WhysEngine
+        engine = Fractal5WhysEngine(max_depth=args.depth)
+        finding = json.loads(args.finding)
+        tree = engine.analyze(finding)
+        print("\n".join(engine.summarize_tree(tree).splitlines()))
+
+    return 0
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     from app.intent.parser import IntentParser
     from app.automation.planner import AutonomousPlanner
@@ -396,6 +424,21 @@ def main() -> int:
     daemon_parser.add_argument("--target", default="", help="Target project root")
     daemon_parser.add_argument("--mode", default="report", choices=["report", "supervised", "autonomous"], help="Execution mode for daemon runs")
     daemon_parser.set_defaults(func=cmd_daemon)
+
+    # fractal
+    fractal_parser = subparsers.add_parser("fractal", help="Fractal deep analysis tools")
+    fractal_sub = fractal_parser.add_subparsers(dest="subcommand")
+
+    fractal_analyze_parser = fractal_sub.add_parser("analyze", help="Analyze project with fractal 5-Whys depth")
+    fractal_analyze_parser.add_argument("--target", default="", help="Target project root")
+    fractal_analyze_parser.add_argument("--depth", type=int, default=5, help="Max fractal depth (1-5)")
+    fractal_analyze_parser.add_argument("--json", action="store_true", help="Output raw JSON")
+    fractal_analyze_parser.set_defaults(func=cmd_fractal)
+
+    fractal_tree_parser = fractal_sub.add_parser("tree", help="Render fractal tree for a single finding")
+    fractal_tree_parser.add_argument("--finding", required=True, help='JSON finding, e.g. {"issue":"eval()","file":"a.py"}')
+    fractal_tree_parser.add_argument("--depth", type=int, default=5, help="Max fractal depth (1-5)")
+    fractal_tree_parser.set_defaults(func=cmd_fractal)
 
     # report
     report_parser = subparsers.add_parser("report", help="Generate report from run results")

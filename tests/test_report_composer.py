@@ -50,3 +50,34 @@ class TestReportComposer:
         assert "No findings" not in md  # Just empty sections
         html = composer.to_html()
         assert "No findings" in html
+
+    def test_fractal_tree_markdown(self, tmp_path: Path):
+        results = [
+            {"agent": "fractal-security", "findings": [
+                {"issue": "eval() usage", "severity": "critical", "file": "app/auth.py"},
+            ], "fractal_trees": [
+                {"level": 1, "question": "What is the risk?", "answer": "eval() allows RCE", "confidence": 1.0, "evidence": ["Detected in auth.py"], "children": [
+                    {"level": 2, "question": "Why does eval() exist?", "answer": "Developer convenience", "confidence": 0.9, "evidence": [], "children": []},
+                ]},
+            ]},
+        ]
+        composer = ReportComposer(results)
+        md = composer.to_markdown(tmp_path / "report.md")
+        assert "🔬 Fractal Deep Analysis" in md
+        assert "L1" in md
+        assert "L2" in md
+        assert "confidence: 100%" in md
+        assert "confidence: 90%" in md
+
+    def test_fractal_tree_html(self, tmp_path: Path):
+        results = [
+            {"agent": "fractal-security", "findings": [], "fractal_trees": [
+                {"level": 1, "question": "What?", "answer": "RCE", "confidence": 1.0, "evidence": ["e1"], "children": []},
+            ]},
+        ]
+        composer = ReportComposer(results)
+        html = composer.to_html(tmp_path / "report.html")
+        assert "🔬 Fractal Deep Analysis" in html
+        assert "L1" in html
+        assert "confidence: 100%" in html
+        assert "📎 e1" in html
