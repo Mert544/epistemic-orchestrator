@@ -29,7 +29,8 @@ def test_distributed_result_to_dict():
 
 
 def test_coordinator_no_online_nodes():
-    coord = DistributedSwarmCoordinator([SwarmNode("n1", "127.0.0.1", 59999)])
+    # Use a different port than the server tests to avoid OS-level contention
+    coord = DistributedSwarmCoordinator([SwarmNode("n1", "127.0.0.1", 59998)])
     result = coord.run("scan", [{"item": 1}])
     assert result.nodes_completed == 0
     assert len(result.errors) == 1

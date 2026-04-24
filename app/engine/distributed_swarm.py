@@ -103,7 +103,7 @@ class DistributedSwarmCoordinator:
     def _is_online(self, node: SwarmNode) -> bool:
         try:
             req = urllib.request.Request(node.url("/health"), method="GET")
-            with urllib.request.urlopen(req, timeout=3) as resp:
+            with urllib.request.urlopen(req, timeout=1) as resp:
                 return resp.status == 200
         except Exception:
             return False
