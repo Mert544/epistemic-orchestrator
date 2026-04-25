@@ -1,0 +1,13 @@
+{
+  "plugins": {
+    "audit": {
+      "version": "1.0.0",
+      "description": "Security audit plugin",
+      "author": "apex",
+      "tags": [
+        "security"
+      ],
+      "download_url": "/download/audit.py"
+    }
+  }
+}
