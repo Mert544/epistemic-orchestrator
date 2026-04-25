@@ -1,0 +1,831 @@
+{
+  "schema_version": 1,
+  "claim_tracker": [
+    {
+      "claim": "eval() usage in risky.py",
+      "branch": "risky.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-57331446",
+      "last_seen_run": "fractal-security-72b062f4",
+      "run_count": 4,
+      "history": [
+        {
+          "run_id": "fractal-security-57331446",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_0.py",
+      "branch": "file_0.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_1.py",
+      "branch": "file_1.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_10.py",
+      "branch": "file_10.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_11.py",
+      "branch": "file_11.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_12.py",
+      "branch": "file_12.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_13.py",
+      "branch": "file_13.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_14.py",
+      "branch": "file_14.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_15.py",
+      "branch": "file_15.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_16.py",
+      "branch": "file_16.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_17.py",
+      "branch": "file_17.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_18.py",
+      "branch": "file_18.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_19.py",
+      "branch": "file_19.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_2.py",
+      "branch": "file_2.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_3.py",
+      "branch": "file_3.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_4.py",
+      "branch": "file_4.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_5.py",
+      "branch": "file_5.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_6.py",
+      "branch": "file_6.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_7.py",
+      "branch": "file_7.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_8.py",
+      "branch": "file_8.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in file_9.py",
+      "branch": "file_9.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-69e5cb3b",
+      "last_seen_run": "fractal-security-69e5cb3b",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-69e5cb3b",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-b7068ce0",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "missing_docstring in code.py",
+      "branch": "code.py",
+      "confidence": 0.5,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-docstring-30a58b38",
+      "last_seen_run": "fractal-docstring-30a58b38",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-docstring-30a58b38",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "missing_test in src.py",
+      "branch": "src.py",
+      "confidence": 0.5,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-test-stub-93bb7ec5",
+      "last_seen_run": "fractal-test-stub-93bb7ec5",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-test-stub-93bb7ec5",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-security-14d65305",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-72b062f4",
+          "status_change": "absent"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "fractal-security-57331446",
+      "timestamp": "2026-04-25T10:02:47.098517+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-69e5cb3b",
+      "timestamp": "2026-04-25T10:02:47.127422+00:00",
+      "claim_count": 20
+    },
+    {
+      "run_id": "fractal-security-b7068ce0",
+      "timestamp": "2026-04-25T10:02:47.132930+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-docstring-30a58b38",
+      "timestamp": "2026-04-25T10:02:47.136889+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-test-stub-93bb7ec5",
+      "timestamp": "2026-04-25T10:02:47.140002+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-14d65305",
+      "timestamp": "2026-04-25T10:02:47.145114+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-72b062f4",
+      "timestamp": "2026-04-25T10:02:47.145114+00:00",
+      "claim_count": 1
+    }
+  ]
+}

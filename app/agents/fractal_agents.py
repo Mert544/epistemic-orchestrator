@@ -8,6 +8,7 @@ from app.agents.recursive import RecursiveAgent
 from app.engine.fractal_5whys import Fractal5WhysEngine
 from app.engine.fractal_patch_generator import FractalPatchGenerator
 from app.engine.fractal_cache import FractalCache
+from app.engine.fractal_cross_run import FractalCrossRunBridge
 
 
 class BaseFractalAgent(RecursiveAgent):
@@ -15,7 +16,7 @@ class BaseFractalAgent(RecursiveAgent):
 
     Subclasses implement `_scan()` to return raw findings.
     Base class automatically runs fractal 5-Whys + meta-analysis + optional auto-patch.
-    Supports caching and parallel analysis.
+    Supports caching, parallel analysis, and cross-run memory.
     """
 
     def __init__(self, name: str, role: str, bus=None, context=None) -> None:
@@ -23,6 +24,7 @@ class BaseFractalAgent(RecursiveAgent):
         self.fractal_engine = Fractal5WhysEngine(max_depth=5)
         self.patch_generator = FractalPatchGenerator()
         self.cache = FractalCache()
+        self.cross_run = FractalCrossRunBridge(".")
         self.max_fractal_budget = 10
         self.auto_patch = False
         self.parallel = True
@@ -49,6 +51,10 @@ class BaseFractalAgent(RecursiveAgent):
         generated_patches = []
         for r in results:
             generated_patches.extend(r.get("patches", []))
+
+        # Record findings for cross-run memory
+        import uuid
+        self.cross_run.record_findings(run_id=f"{self.name}-{uuid.uuid4().hex[:8]}", findings=findings)
 
         return {
             "agent": self.name,
