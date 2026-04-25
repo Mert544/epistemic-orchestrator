@@ -173,3 +173,34 @@ class ReportComposer:
         if path:
             Path(path).write_text(json.dumps(sarif, indent=2), encoding="utf-8")
         return sarif
+
+    def to_mermaid(self, path: str | Path | None = None) -> str:
+        """Export fractal trees as Mermaid flowchart."""
+        from app.reporting.mermaid_exporter import FractalMermaidExporter
+        exporter = FractalMermaidExporter()
+        all_trees: list[dict[str, Any]] = []
+        for result in self.results:
+            all_trees.extend(result.get("fractal_trees", []))
+        if not all_trees:
+            return ""
+        # Reconstruct FractalNode trees from dicts
+        from app.engine.fractal_5whys import FractalNode
+        def rebuild(data: dict[str, Any]) -> FractalNode:
+            node = FractalNode(
+                level=data["level"],
+                question=data["question"],
+                answer=data["answer"],
+                confidence=data["confidence"],
+                evidence=data.get("evidence", []),
+                counter_evidence=data.get("counter_evidence", []),
+                rebuttal=data.get("rebuttal", ""),
+                metadata=data.get("metadata", {}),
+            )
+            for child in data.get("children", []):
+                node.children.append(rebuild(child))
+            return node
+        nodes = [rebuild(t) for t in all_trees]
+        mermaid = exporter.export_batch(nodes)
+        if path:
+            Path(path).write_text(mermaid, encoding="utf-8")
+        return mermaid

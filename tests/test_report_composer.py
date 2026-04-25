@@ -81,3 +81,19 @@ class TestReportComposer:
         assert "L1" in html
         assert "confidence: 100%" in html
         assert "📎 e1" in html
+
+    def test_to_mermaid(self, tmp_path: Path):
+        results = [
+            {"agent": "fractal-security", "findings": [], "fractal_trees": [
+                {"level": 1, "question": "Q?", "answer": "A1", "confidence": 1.0, "evidence": [], "children": [
+                    {"level": 2, "question": "Q2?", "answer": "A2", "confidence": 0.8, "evidence": [], "children": []},
+                ]},
+            ]},
+        ]
+        composer = ReportComposer(results)
+        mermaid = composer.to_mermaid(tmp_path / "report.mmd")
+        assert "flowchart TD" in mermaid
+        assert "subgraph Finding_0" in mermaid
+        assert "A1" in mermaid
+        assert "A2" in mermaid
+        assert (tmp_path / "report.mmd").exists()
