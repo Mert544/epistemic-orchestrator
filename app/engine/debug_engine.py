@@ -133,9 +133,16 @@ class DebugEngine:
     TRACE_MAX = 10_000
     SNAPSHOT_MAX = 1_000
 
-    def __init__(self, project_root: str = ".", enabled: bool = True) -> None:
+    LEVEL_TRACE = 0
+    LEVEL_DEBUG = 1
+    LEVEL_INFO = 2
+    LEVEL_WARN = 3
+    LEVEL_ERROR = 4
+
+    def __init__(self, project_root: str = ".", enabled: bool = True, level: int = LEVEL_DEBUG) -> None:
         self.project_root = Path(project_root).resolve()
         self.enabled = enabled
+        self.level = level
         self._traces: list[ExecutionTrace] = []
         self._snapshots: list[DebugSnapshot] = []
         self._performance: dict[str, PerformanceRecord] = {}
@@ -143,11 +150,19 @@ class DebugEngine:
         self._breakpoints: list[BreakpointCondition] = []
         self._paused = False
         self._pause_log: list[str] = []
+        self._error_collector: Any = None
+
+    def attach_error_collector(self, collector: Any) -> None:
+        """Attach an ErrorCollector for integrated error tracking."""
+        self._error_collector = collector
+
+    def _should_log(self, level: int) -> bool:
+        return self.enabled and level >= self.level
 
     # ── Public API: Tracing ───────────────────────────────────────────
 
-    def trace(self, phase: str, detail: str, metadata: dict[str, Any] | None = None) -> None:
-        if not self.enabled:
+    def trace(self, phase: str, detail: str, metadata: dict[str, Any] | None = None, level: int = LEVEL_DEBUG) -> None:
+        if not self._should_log(level):
             return
         if len(self._traces) >= self.TRACE_MAX:
             self._traces.pop(0)
@@ -160,6 +175,9 @@ class DebugEngine:
                 stack_depth=0,
             )
         )
+        # Forward errors to attached collector
+        if self._error_collector and level >= self.LEVEL_ERROR:
+            self._error_collector.add_error(source="debug", message=detail, details=metadata)
         # Avoid recursive breakpoint checks on breakpoint traces
         if phase != "breakpoint":
             self._check_breakpoints({"phase": phase, "detail": detail})
@@ -236,7 +254,7 @@ class DebugEngine:
         for s in self._snapshots:
             all_anomalies.extend(s.anomalies)
 
-        report = {
+        report: dict[str, Any] = {
             "total_time_sec": round(total_time, 3),
             "trace_count": len(self._traces),
             "snapshot_count": len(self._snapshots),
@@ -251,7 +269,12 @@ class DebugEngine:
             "pause_events": self._pause_log,
             "snapshots": [s.to_dict() for s in self._snapshots[-5:]],
             "recent_traces": [t.to_dict() for t in self._traces[-20:]],
+            "debug_level": self.level,
+            "enabled": self.enabled,
         }
+
+        if self._error_collector:
+            report["error_collector"] = self._error_collector.summary()
 
         debug_dir = self.project_root / ".apex" / "debug"
         debug_dir.mkdir(parents=True, exist_ok=True)

@@ -66,24 +66,34 @@ def with_error_handling(
 def with_timeout(
     seconds: float, default: Any = None
 ) -> Callable[[Callable[..., T]], Callable[..., T]]:
-    """Decorator to add timeout to a function."""
+    """Decorator to add timeout to a function (cross-platform)."""
 
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> T:
-            import signal
+            import threading
 
-            def timeout_handler(signum, frame):
+            result: list[T] = []
+            exception: list[BaseException] = []
+
+            def target():
+                try:
+                    result.append(func(*args, **kwargs))
+                except BaseException as e:
+                    exception.append(e)
+
+            thread = threading.Thread(target=target)
+            thread.daemon = True
+            thread.start()
+            thread.join(timeout=seconds)
+
+            if thread.is_alive():
                 raise TimeoutError(f"{func.__name__} timed out after {seconds}s")
 
-            old_handler = signal.signal(signal.SIGALRM, timeout_handler)
-            signal.alarm(int(seconds))
-            try:
-                result = func(*args, **kwargs)
-            finally:
-                signal.alarm(0)
-                signal.signal(signal.SIGALRM, old_handler)
-            return result
+            if exception:
+                raise exception[0]
+
+            return result[0] if result else default
 
         return wrapper
 
@@ -108,7 +118,7 @@ class PatchError(ApexError):
     pass
 
 
-class TimeoutError(ApexError):
+class ApexTimeoutError(ApexError):
     """Operation timed out."""
 
     pass
