@@ -740,3 +740,89 @@ composer.to_html("report.html")
 ```
 
 Reports render each finding with nested L1→L5 analysis, confidence scores, and evidence.
+
+### Counter-Evidence & Meta-Analysis
+
+Every node in the fractal tree is challenged by counter-arguments:
+
+```python
+from app.engine.fractal_5whys import Fractal5WhysEngine
+
+engine = Fractal5WhysEngine(max_depth=5, enable_counter_evidence=True)
+tree = engine.analyze({"issue": "eval() usage", "file": "auth.py"})
+meta = engine.meta_analyze(tree)
+print(meta.recommended_action)  # patch | review | ignore | escalate
+```
+
+- **Counter-evidence**: "What if the input is already sanitized?"
+- **Rebuttal**: "Even with sanitization, eval() remains a critical attack surface."
+- **Meta-analysis**: Aggregate confidence, depth reached, recommended action
+
+### Auto-Patch Generation
+
+When meta-analysis recommends `patch`, Apex generates deterministic fixes:
+
+```python
+from app.engine.fractal_patch_generator import FractalPatchGenerator
+
+gen = FractalPatchGenerator()
+patches = gen.generate(finding, meta.to_dict())
+for p in patches:
+    gen.apply(p, project_root=".")
+```
+
+Supported transforms:
+- `eval()` → `ast.literal_eval()`
+- `os.system()` → `subprocess.run()`
+- `bare except:` → `except Exception:`
+- Missing docstring → placeholder docstring
+- Missing test → test stub
+
+### Caching & Parallel Analysis
+
+```python
+from app.engine.fractal_cache import FractalCache
+
+cache = FractalCache()
+cached_tree = cache.get(finding)
+if not cached_tree:
+    tree = engine.analyze(finding)
+    cache.put(finding, tree)
+```
+
+- SHA256 cache keys in `.apex/fractal_cache/`
+- ThreadPoolExecutor with 4 workers for parallel analysis
+- Cache hit rate tracked automatically
+
+### GitHub PR Integration
+
+Post fractal analysis as PR comments:
+
+```python
+from app.integrations.github_fractal_comment import GitHubFractalCommenter
+
+commenter = GitHubFractalCommenter()
+commenter.post_fractal_summary(pr_number=42, results=results)
+```
+
+Uses stdlib `urllib` only — no external dependencies.
+
+### Orchestrator Integration
+
+The main orchestrator auto-detects fractal mode for security/audit goals:
+
+```bash
+# Auto-detect: fractal enabled because goal contains "security"
+apex run --goal="security audit" --target=.
+
+# Explicit fractal mode for any goal
+apex run --goal="improve code quality" --target=. --fractal
+```
+
+Environment variable:
+```bash
+export APEX_USE_FRACTAL=1
+python -m app.main
+```
+
+After a swarm run, a fractal-aware report is auto-generated at `.apex/fractal-report.md`.

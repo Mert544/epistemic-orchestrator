@@ -63,8 +63,16 @@ class BaseFractalAgent(RecursiveAgent):
             "patches_applied": sum(1 for p in generated_patches if p.get("applied")),
         }
 
+    def _normalize_finding(self, finding: dict[str, Any]) -> dict[str, Any]:
+        """Normalize finding keys for fractal engine compatibility."""
+        normalized = dict(finding)
+        if "risk_type" in normalized and "issue" not in normalized:
+            normalized["issue"] = normalized["risk_type"]
+        return normalized
+
     def _analyze_one(self, finding: dict[str, Any], max_depth: int) -> dict[str, Any]:
         """Analyze a single finding with cache check."""
+        finding = self._normalize_finding(finding)
         cached = self.cache.get(finding)
         if cached:
             tree = cached
