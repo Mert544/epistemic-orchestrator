@@ -14,6 +14,7 @@ from app.engine.action_executor import ActionExecutor, ActionResult
 from app.engine.feedback_loop import FeedbackLoop
 from app.engine.reflector import Reflector
 from app.engine.planner import Planner
+from app.engine.git_auto_commit import GitAutoCommit
 
 
 class BaseFractalAgent(RecursiveAgent):
@@ -36,10 +37,12 @@ class BaseFractalAgent(RecursiveAgent):
         self.feedback = FeedbackLoop()
         self.reflector = Reflector(self.feedback)
         self.planner = Planner(self.feedback)
+        self.git_commit = GitAutoCommit(".")
         self.cache = FractalCache()
         self.cross_run = FractalCrossRunBridge(".")
         self.max_fractal_budget = 10
         self.auto_patch = False
+        self.auto_commit = False
         self.parallel = True
         self.max_workers = 4
 
@@ -59,6 +62,7 @@ class BaseFractalAgent(RecursiveAgent):
 
         # Phase 2: Hands (ActionExecutor) executes if auto_patch enabled
         action_results = []
+        commit_results = []
         if self.auto_patch:
             self.executor = ActionExecutor(project_root)
             for decision in decisions:
@@ -90,6 +94,14 @@ class BaseFractalAgent(RecursiveAgent):
                         # Step 3: Promote to original if everything passed
                         if overall_success:
                             self.executor.promote_to_original()
+                            # Step 4: Auto-commit if enabled
+                            if self.auto_commit:
+                                commit = self.git_commit.commit(
+                                    changed_files=patch_result.changed_files,
+                                    finding=decision.finding.get("issue", "unknown"),
+                                    action="fix",
+                                )
+                                commit_results.append(commit.to_dict())
 
                         # Feedback loop: update confidence
                         node_key = f"{decision.finding.get('issue','')}:{decision.finding.get('file','')}:{decision.finding.get('line',0)}"
@@ -127,9 +139,10 @@ class BaseFractalAgent(RecursiveAgent):
             "fractal_trees": fractal_trees,
             "meta_analyses": meta_results,
             "generated_patches": generated_patches,
-            "patches_applied": sum(1 for p in generated_patches if p.get("applied")),
+            "patches_applied": sum(1 for ar in action_results if ar.get("patch_applied")),
             "action_results": action_results,
             "reflection": reflection,
+            "commits": commit_results if self.auto_commit else [],
         }
 
     def _normalize_finding(self, finding: dict[str, Any]) -> dict[str, Any]:

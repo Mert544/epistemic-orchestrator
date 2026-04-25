@@ -7,8 +7,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-57331446",
-      "last_seen_run": "fractal-security-48d17e04",
-      "run_count": 27,
+      "last_seen_run": "fractal-security-5d888d92",
+      "run_count": 33,
       "history": [
         {
           "run_id": "fractal-security-57331446",
@@ -317,6 +317,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -326,8 +406,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -631,6 +711,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -641,8 +801,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -946,6 +1106,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -956,8 +1196,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -1261,6 +1501,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -1271,8 +1591,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -1576,6 +1896,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -1586,8 +1986,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -1891,6 +2291,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -1901,8 +2381,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -2206,6 +2686,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -2216,8 +2776,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -2521,6 +3081,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -2531,8 +3171,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -2836,6 +3476,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -2846,8 +3566,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -3151,6 +3871,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -3161,8 +3961,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -3466,6 +4266,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -3476,8 +4356,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -3781,6 +4661,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -3791,8 +4751,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -4096,6 +5056,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -4106,8 +5146,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -4411,6 +5451,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -4421,8 +5541,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -4726,6 +5846,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -4736,8 +5936,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -5041,6 +6241,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -5051,8 +6331,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -5356,6 +6636,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -5366,8 +6726,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -5671,6 +7031,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -5681,8 +7121,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -5986,6 +7426,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -5996,8 +7516,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -6301,6 +7821,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -6311,8 +7911,8 @@
       "confidence": 1.0,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-security-69e5cb3b",
-      "last_seen_run": "fractal-security-46055434",
-      "run_count": 7,
+      "last_seen_run": "fractal-security-9a733346",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-security-69e5cb3b",
@@ -6617,6 +8217,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -6626,8 +8306,8 @@
       "confidence": 0.5,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-docstring-30a58b38",
-      "last_seen_run": "fractal-docstring-75f40187",
-      "run_count": 7,
+      "last_seen_run": "fractal-docstring-5880136e",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-docstring-30a58b38",
@@ -6924,6 +8604,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -6933,8 +8693,8 @@
       "confidence": 0.5,
       "status": "potentially_resolved",
       "first_seen_run": "fractal-test-stub-93bb7ec5",
-      "last_seen_run": "fractal-test-stub-303d4b95",
-      "run_count": 7,
+      "last_seen_run": "fractal-test-stub-219fca34",
+      "run_count": 9,
       "history": [
         {
           "run_id": "fractal-test-stub-93bb7ec5",
@@ -7226,6 +8986,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "confidence": 0.5
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -7430,208 +9270,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in app/cli.py",
-      "branch": "app/cli.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -7835,6 +9552,369 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in app/cli.py",
+      "branch": "app/cli.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -8039,208 +10119,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in app/agents/debate.py",
-      "branch": "app/agents/debate.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -8445,6 +10402,369 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in app/agents/debate.py",
+      "branch": "app/agents/debate.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -8648,208 +10968,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in app/agents/evaluator.py",
-      "branch": "app/agents/evaluator.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -9054,6 +11251,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -9256,6 +11533,369 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in app/agents/evaluator.py",
+      "branch": "app/agents/evaluator.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -9460,208 +12100,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in app/agents/swarm_coordinator.py",
-      "branch": "app/agents/swarm_coordinator.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -9866,6 +12383,369 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in app/agents/swarm_coordinator.py",
+      "branch": "app/agents/swarm_coordinator.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -10069,6 +12949,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -10271,6 +13231,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -10475,6 +13515,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -10677,6 +13797,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -10881,6 +14081,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -11083,6 +14363,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -11287,6 +14647,86 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
         }
       ]
     },
@@ -11489,6 +14929,86 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -11693,208 +15213,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in app/orchestrator/core.py",
-      "branch": "app/orchestrator/core.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -12098,6 +15495,369 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in app/orchestrator/core.py",
+      "branch": "app/orchestrator/core.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -12302,208 +16062,85 @@
         {
           "run_id": "fractal-security-2fccf8ec",
           "status_change": "absent"
-        }
-      ]
-    },
-    {
-      "claim": "eval() usage in scripts/benchmark_consensus.py",
-      "branch": "scripts/benchmark_consensus.py",
-      "confidence": 1.0,
-      "status": "potentially_resolved",
-      "first_seen_run": "fractal-security-658d405e",
-      "last_seen_run": "fractal-security-658d405e",
-      "run_count": 1,
-      "history": [
-        {
-          "run_id": "fractal-security-658d405e",
-          "confidence": 1.0
         },
         {
-          "run_id": "fractal-security-19405f57",
+          "run_id": "fractal-security-51ecb3c2",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-28d6c42a",
+          "run_id": "fractal-security-8f1fd226",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-b27df1a4",
+          "run_id": "fractal-security-8b31d1d7",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-24964e95",
+          "run_id": "fractal-security-594e6f97",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-2b7f2692",
+          "run_id": "fractal-security-7e7243c4",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-a0913fcd",
+          "run_id": "fractal-security-fbd3c33c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-eaf615a8",
+          "run_id": "fractal-security-8116041c",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-de9d9d6f",
+          "run_id": "fractal-docstring-4e6f8bbc",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-da3d5ad8",
+          "run_id": "fractal-test-stub-1a0ddc2d",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-fe226ec6",
+          "run_id": "fractal-security-686d9ced",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1d1d30eb",
+          "run_id": "fractal-security-9a733346",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-49e3861b",
+          "run_id": "fractal-security-6aa6b15f",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-1b185ab9",
+          "run_id": "fractal-docstring-5880136e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-docstring-8afa86c4",
+          "run_id": "fractal-test-stub-219fca34",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-test-stub-7b0de488",
+          "run_id": "fractal-security-c4cd0cee",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-076a263b",
+          "run_id": "fractal-security-5d888d92",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-399c08fc",
+          "run_id": "fractal-security-f3fc729e",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-d8093b3a",
+          "run_id": "fractal-security-50492072",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-cd352e47",
+          "run_id": "fractal-security-5bfd3787",
           "status_change": "absent"
         },
         {
-          "run_id": "fractal-security-db22caff",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-83eb4fd8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8e547ef1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-6cd76c7d",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-391920b1",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-591ec060",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8ac63184",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-23904ac7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ca5c4a32",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c1afaf6b",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-8fc0ca76",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4b9b4bb7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-4874d27f",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c7c3b859",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-7991e6c7",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-531d0e72",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-ae5294f4",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-86228923",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-46055434",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-52d2a6ed",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-docstring-75f40187",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-test-stub-303d4b95",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-0e25b924",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-48d17e04",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-c87b7fcb",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-261f48f8",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-cbca4e9a",
-          "status_change": "absent"
-        },
-        {
-          "run_id": "fractal-security-2fccf8ec",
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
@@ -12707,112 +16344,375 @@
         },
         {
           "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
+          "status_change": "absent"
+        }
+      ]
+    },
+    {
+      "claim": "eval() usage in scripts/benchmark_consensus.py",
+      "branch": "scripts/benchmark_consensus.py",
+      "confidence": 1.0,
+      "status": "potentially_resolved",
+      "first_seen_run": "fractal-security-658d405e",
+      "last_seen_run": "fractal-security-658d405e",
+      "run_count": 1,
+      "history": [
+        {
+          "run_id": "fractal-security-658d405e",
+          "confidence": 1.0
+        },
+        {
+          "run_id": "fractal-security-19405f57",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-28d6c42a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-b27df1a4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-24964e95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2b7f2692",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-a0913fcd",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-eaf615a8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-de9d9d6f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-da3d5ad8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-fe226ec6",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1d1d30eb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-49e3861b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-1b185ab9",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-8afa86c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-7b0de488",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-076a263b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-399c08fc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-d8093b3a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cd352e47",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-db22caff",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-83eb4fd8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8e547ef1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6cd76c7d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-391920b1",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-591ec060",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8ac63184",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-23904ac7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ca5c4a32",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c1afaf6b",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8fc0ca76",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4b9b4bb7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-4874d27f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c7c3b859",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7991e6c7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-531d0e72",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-ae5294f4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-86228923",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-46055434",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-52d2a6ed",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-75f40187",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-303d4b95",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-0e25b924",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-48d17e04",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c87b7fcb",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-261f48f8",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-cbca4e9a",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-2fccf8ec",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-51ecb3c2",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8f1fd226",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8b31d1d7",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-594e6f97",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-7e7243c4",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-fbd3c33c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-8116041c",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-4e6f8bbc",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-1a0ddc2d",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-686d9ced",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-9a733346",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-6aa6b15f",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-docstring-5880136e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-test-stub-219fca34",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-c4cd0cee",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5d888d92",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-f3fc729e",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-50492072",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-5bfd3787",
+          "status_change": "absent"
+        },
+        {
+          "run_id": "fractal-security-44b733a4",
           "status_change": "absent"
         }
       ]
     }
   ],
   "runs": [
-    {
-      "run_id": "fractal-security-6cd76c7d",
-      "timestamp": "2026-04-25T11:04:51.275467+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-391920b1",
-      "timestamp": "2026-04-25T11:06:14.435034+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-591ec060",
-      "timestamp": "2026-04-25T11:06:15.323104+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-8ac63184",
-      "timestamp": "2026-04-25T11:06:58.223363+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-23904ac7",
-      "timestamp": "2026-04-25T11:07:20.742681+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-ca5c4a32",
-      "timestamp": "2026-04-25T11:07:21.737050+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-c1afaf6b",
-      "timestamp": "2026-04-25T11:08:19.541666+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-8fc0ca76",
-      "timestamp": "2026-04-25T11:08:20.416133+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-4b9b4bb7",
-      "timestamp": "2026-04-25T11:08:57.327872+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-4874d27f",
-      "timestamp": "2026-04-25T11:08:58.214146+00:00",
-      "claim_count": 4
-    },
-    {
-      "run_id": "fractal-security-c7c3b859",
-      "timestamp": "2026-04-25T11:10:15.691160+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-7991e6c7",
-      "timestamp": "2026-04-25T11:10:15.705561+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-531d0e72",
-      "timestamp": "2026-04-25T11:10:15.718379+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-ae5294f4",
-      "timestamp": "2026-04-25T11:10:15.730858+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-86228923",
-      "timestamp": "2026-04-25T11:10:26.793352+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-46055434",
-      "timestamp": "2026-04-25T11:10:26.815653+00:00",
-      "claim_count": 20
-    },
-    {
-      "run_id": "fractal-security-52d2a6ed",
-      "timestamp": "2026-04-25T11:10:26.830811+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-docstring-75f40187",
-      "timestamp": "2026-04-25T11:10:26.841812+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-test-stub-303d4b95",
-      "timestamp": "2026-04-25T11:10:26.852811+00:00",
-      "claim_count": 1
-    },
-    {
-      "run_id": "fractal-security-0e25b924",
-      "timestamp": "2026-04-25T11:10:26.866058+00:00",
-      "claim_count": 1
-    },
     {
       "run_id": "fractal-security-48d17e04",
       "timestamp": "2026-04-25T11:10:26.879149+00:00",
@@ -12836,6 +16736,106 @@
     {
       "run_id": "fractal-security-2fccf8ec",
       "timestamp": "2026-04-25T11:10:27.364913+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-51ecb3c2",
+      "timestamp": "2026-04-25T11:15:35.099461+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-8f1fd226",
+      "timestamp": "2026-04-25T11:15:35.115400+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-8b31d1d7",
+      "timestamp": "2026-04-25T11:15:35.130175+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-594e6f97",
+      "timestamp": "2026-04-25T11:15:35.153161+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-7e7243c4",
+      "timestamp": "2026-04-25T11:15:35.165751+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-fbd3c33c",
+      "timestamp": "2026-04-25T11:15:35.194848+00:00",
+      "claim_count": 20
+    },
+    {
+      "run_id": "fractal-security-8116041c",
+      "timestamp": "2026-04-25T11:15:35.210652+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-docstring-4e6f8bbc",
+      "timestamp": "2026-04-25T11:15:35.223462+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-test-stub-1a0ddc2d",
+      "timestamp": "2026-04-25T11:15:35.236939+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-686d9ced",
+      "timestamp": "2026-04-25T11:15:47.066843+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-9a733346",
+      "timestamp": "2026-04-25T11:15:47.093962+00:00",
+      "claim_count": 20
+    },
+    {
+      "run_id": "fractal-security-6aa6b15f",
+      "timestamp": "2026-04-25T11:15:47.109474+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-docstring-5880136e",
+      "timestamp": "2026-04-25T11:15:47.124005+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-test-stub-219fca34",
+      "timestamp": "2026-04-25T11:15:47.139769+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-c4cd0cee",
+      "timestamp": "2026-04-25T11:15:47.154417+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-5d888d92",
+      "timestamp": "2026-04-25T11:15:47.171081+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-f3fc729e",
+      "timestamp": "2026-04-25T11:15:47.632767+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-50492072",
+      "timestamp": "2026-04-25T11:15:47.650414+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-5bfd3787",
+      "timestamp": "2026-04-25T11:15:47.668333+00:00",
+      "claim_count": 1
+    },
+    {
+      "run_id": "fractal-security-44b733a4",
+      "timestamp": "2026-04-25T11:15:47.687299+00:00",
       "claim_count": 1
     }
   ]

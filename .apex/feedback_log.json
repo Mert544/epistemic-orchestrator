@@ -71,6 +71,54 @@
       "new_confidence": 0.45199999999999996,
       "timestamp": "2026-04-25 14:10:27",
       "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:35",
+      "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:35",
+      "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:35",
+      "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:47",
+      "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:47",
+      "action_type": "patch"
+    },
+    {
+      "node_key": "eval() usage:unsafe.py:3",
+      "old_confidence": 0.86,
+      "feedback_score": -0.5,
+      "new_confidence": 0.45199999999999996,
+      "timestamp": "2026-04-25 14:15:47",
+      "action_type": "patch"
     }
   ]
 }
