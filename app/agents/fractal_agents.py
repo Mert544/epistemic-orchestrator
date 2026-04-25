@@ -6,23 +6,36 @@ from typing import Any
 from app.agents.base import Agent, AgentMessage
 from app.agents.recursive import RecursiveAgent
 from app.engine.fractal_5whys import Fractal5WhysEngine
-from app.engine.fractal_patch_generator import FractalPatchGenerator
+from app.engine.fractal_patch_generator import FractalPatchGenerator, FractalPatch
 from app.engine.fractal_cache import FractalCache
 from app.engine.fractal_cross_run import FractalCrossRunBridge
+from app.engine.fractal_cortex import FractalCortex, CortexDecision
+from app.engine.action_executor import ActionExecutor, ActionResult
+from app.engine.feedback_loop import FeedbackLoop
+from app.engine.reflector import Reflector
+from app.engine.planner import Planner
 
 
 class BaseFractalAgent(RecursiveAgent):
     """Base class for agents that perform fractal deep-analysis on their findings.
 
+    Architecture:
+    - Brain (Cortex): Pure reasoning, no side effects
+    - Hands (ActionExecutor): Sandboxed execution
+    - Feedback (FeedbackLoop): EMA confidence updates
+    - Reflection (Reflector): Performance analysis
+    - Planning (Planner): Adaptive strategy selection
+
     Subclasses implement `_scan()` to return raw findings.
-    Base class automatically runs fractal 5-Whys + meta-analysis + optional auto-patch.
-    Supports caching, parallel analysis, and cross-run memory.
     """
 
     def __init__(self, name: str, role: str, bus=None, context=None) -> None:
         super().__init__(name=name, role=role, bus=bus, context=context)
-        self.fractal_engine = Fractal5WhysEngine(max_depth=5)
-        self.patch_generator = FractalPatchGenerator()
+        self.cortex = FractalCortex(max_depth=5, enable_counter_evidence=True)
+        self.executor = ActionExecutor(".")
+        self.feedback = FeedbackLoop()
+        self.reflector = Reflector(self.feedback)
+        self.planner = Planner(self.feedback)
         self.cache = FractalCache()
         self.cross_run = FractalCrossRunBridge(".")
         self.max_fractal_budget = 10
@@ -41,32 +54,59 @@ class BaseFractalAgent(RecursiveAgent):
         budget = min(len(findings), self.max_fractal_budget)
         targets = findings[:budget]
 
-        if self.parallel and len(targets) > 1:
-            results = self._analyze_parallel(targets, max_depth)
-        else:
-            results = [self._analyze_one(f, max_depth) for f in targets]
+        # Phase 1: Brain (Cortex) decides
+        decisions = self._decide_batch(targets)
 
-        fractal_trees = [r["tree"] for r in results if r["tree"]]
-        meta_results = [r["meta"] for r in results if r["meta"]]
-        generated_patches = []
-        for r in results:
-            generated_patches.extend(r.get("patches", []))
+        # Phase 2: Hands (ActionExecutor) executes if auto_patch enabled
+        action_results = []
+        if self.auto_patch:
+            for decision in decisions:
+                if decision.action_type == "patch" and decision.patches:
+                    for patch_dict in decision.patches:
+                        patch = FractalPatch(**patch_dict)
+                        plan = self.planner.plan(decision.finding)
+                        strategy = plan.next_strategy()
+                        result = self.executor.execute_patch(patch, run_tests=True)
+                        action_results.append(result.to_dict())
+
+                        # Feedback loop: update confidence
+                        node_key = f"{decision.finding.get('issue','')}:{decision.finding.get('file','')}:{decision.finding.get('line',0)}"
+                        old_conf = decision.meta_analysis.get("aggregate_confidence", 0.5)
+                        self.feedback.update(node_key, old_conf, result.feedback_score, result.action_type)
+
+                        # Retry with fallback if failed
+                        if not result.success:
+                            fallback = plan.next_strategy()
+                            if fallback:
+                                # Try fallback strategy (simplified: just log)
+                                pass
+
+        # Phase 3: Reflection
+        reflection = self.reflector.reflect().to_dict()
 
         # Record findings for cross-run memory
         import uuid
         self.cross_run.record_findings(run_id=f"{self.name}-{uuid.uuid4().hex[:8]}", findings=findings)
+
+        fractal_trees = [d.fractal_tree for d in decisions]
+        meta_results = [d.meta_analysis for d in decisions]
+        generated_patches = []
+        for d in decisions:
+            generated_patches.extend(d.patches)
 
         return {
             "agent": self.name,
             "role": self.role,
             **{k: v for k, v in scan_result.items() if k != "findings"},
             "findings_count": len(findings),
-            "fractal_analyzed": len(fractal_trees),
+            "fractal_analyzed": len(decisions),
             "findings": findings,
             "fractal_trees": fractal_trees,
             "meta_analyses": meta_results,
             "generated_patches": generated_patches,
             "patches_applied": sum(1 for p in generated_patches if p.get("applied")),
+            "action_results": action_results,
+            "reflection": reflection,
         }
 
     def _normalize_finding(self, finding: dict[str, Any]) -> dict[str, Any]:
@@ -76,40 +116,77 @@ class BaseFractalAgent(RecursiveAgent):
             normalized["issue"] = normalized["risk_type"]
         return normalized
 
-    def _analyze_one(self, finding: dict[str, Any], max_depth: int) -> dict[str, Any]:
-        """Analyze a single finding with cache check."""
+    def _decide_one(self, finding: dict[str, Any], max_depth: int) -> CortexDecision:
+        """Brain decides action for a single finding (pure reasoning, no side effects)."""
         finding = self._normalize_finding(finding)
         cached = self.cache.get(finding)
         if cached:
-            tree = cached
-        else:
-            tree = self.spawn_fractal_analyzer(finding, max_depth)
-            if tree:
-                self.cache.put(finding, tree)
+            # Reconstruct decision from cached tree
+            meta = self.cortex.engine.meta_analyze(cached)
+            patches = []
+            if meta.recommended_action == "patch":
+                patches = [p.to_dict() for p in self.cortex.patch_generator.generate(finding, meta.to_dict())]
+            return CortexDecision(
+                finding=finding,
+                fractal_tree=cached.to_dict(),
+                meta_analysis=meta.to_dict(),
+                action_type=meta.recommended_action,
+                patches=patches,
+                rationale=meta.rationale,
+            )
 
-        if not tree:
-            return {"tree": None, "meta": None, "patches": []}
+        # Fresh analysis via Cortex
+        decision = self.cortex.decide(finding)
+        # Broadcast fractal analysis complete
+        if self.bus:
+            self.bus.broadcast(
+                sender=self.name,
+                topic="fractal.analysis.complete",
+                payload={
+                    "finding": finding,
+                    "tree_depth": decision.fractal_tree.get("level", 1),
+                    "root_question": decision.fractal_tree.get("question", ""),
+                },
+            )
+        # Cache the tree
+        from app.engine.fractal_5whys import FractalNode
+        tree = self._rebuild_tree(decision.fractal_tree)
+        self.cache.put(finding, tree)
+        return decision
 
-        meta = self.fractal_engine.meta_analyze(tree)
-        patches = []
-        if meta.recommended_action == "patch":
-            patches = [p.to_dict() for p in self.patch_generator.generate(finding, meta.to_dict())]
-            if self.auto_patch:
-                for p in patches:
-                    self.patch_generator.apply(p, ".")
+    def _decide_batch(self, findings: list[dict[str, Any]], max_depth: int = 5) -> list[CortexDecision]:
+        """Brain decides for multiple findings."""
+        if self.parallel and len(findings) > 1:
+            workers = min(self.max_workers, len(findings))
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                futures = [pool.submit(self._decide_one, f, max_depth) for f in findings]
+                return [f.result() for f in futures]
+        return [self._decide_one(f, max_depth) for f in findings]
 
-        return {
-            "tree": tree.to_dict(),
-            "meta": meta.to_dict(),
-            "patches": patches,
-        }
+    def _rebuild_tree(self, data: dict[str, Any]) -> FractalNode:
+        """Rebuild FractalNode from dict (for caching)."""
+        from app.engine.fractal_5whys import FractalNode
+        node = FractalNode(
+            level=data["level"],
+            question=data["question"],
+            answer=data["answer"],
+            confidence=data["confidence"],
+            evidence=data.get("evidence", []),
+            counter_evidence=data.get("counter_evidence", []),
+            rebuttal=data.get("rebuttal", ""),
+            metadata=data.get("metadata", {}),
+        )
+        for child in data.get("children", []):
+            node.children.append(self._rebuild_tree(child))
+        return node
 
     def _analyze_parallel(self, findings: list[dict[str, Any]], max_depth: int) -> list[dict[str, Any]]:
-        """Analyze findings in parallel using thread pool."""
+        """Legacy parallel analysis."""
         workers = min(self.max_workers, len(findings))
         with ThreadPoolExecutor(max_workers=workers) as pool:
-            futures = [pool.submit(self._analyze_one, f, max_depth) for f in findings]
-            return [f.result() for f in futures]
+            futures = [pool.submit(self._decide_one, f, max_depth) for f in findings]
+            results = [f.result() for f in futures]
+        return [{"tree": r.fractal_tree, "meta": r.meta_analysis, "patches": r.patches} for r in results]
 
     def spawn_fractal_analyzer(self, finding: dict[str, Any], max_depth: int) -> Any:
         engine = Fractal5WhysEngine(max_depth=max_depth)

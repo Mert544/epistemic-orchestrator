@@ -35,6 +35,7 @@ class TestFractalSecurityAgent:
         bus.subscribe("test", "fractal.analysis.complete", lambda msg: received.append(msg))
         agent = FractalSecurityAgent(bus=bus)
         agent.cache.clear()  # Ensure cache miss
+        agent.cortex.engine.enable_counter_evidence = True
         risky = tmp_path / "risky.py"
         risky.write_text("eval(x)\n")
         agent.run(project_root=tmp_path)
