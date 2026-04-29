@@ -873,3 +873,69 @@ recall = bridge.build_recall_prompt()
 - Persistent issues (seen in 2+ runs) are surfaced first
 - Resolved issues are marked `potentially_resolved`
 - Generates recall prompts for the next run
+
+---
+
+## Apex Debug Integration
+
+Apex Orchestrator integrates with Apex Debug for static analysis, auto-fix, and security auditing.
+
+### Agent Skills
+
+```python
+from app.agents.skills.apex_debug_agent import ApexDebugAgent
+from app.agents.skills.self_healing_agent import SelfHealingAgent
+from app.agents.skills.cross_repo_workflow import CrossRepoWorkflow
+
+# Run static analysis via Apex Debug
+agent = ApexDebugAgent()
+result = agent.run(".")
+
+# Auto-fix findings
+healer = SelfHealingAgent()
+healer.run(result.findings)
+
+# End-to-end: analyze → fix → verify → commit
+workflow = CrossRepoWorkflow()
+workflow.run("/path/to/project")
+```
+
+### Supported Apex Debug Features
+
+| Feature | CLI Flag | Description |
+|---------|----------|-------------|
+| Watch Mode | `apex watch` | Auto-reanalyze on file changes |
+| Baseline | `--baseline` | Filter known issues |
+| Git Diff | `--diff-staged` | Analyze only changed lines |
+| Auto-Fix | `--fix` | Safe deterministic corrections |
+| Custom Plugins | `--plugins <dir>` | Load custom patterns at runtime |
+| HTML Report | `--output html` | Interactive report generation |
+| Exit Codes | `--exit-code` | CI/CD friendly severity return |
+| SARIF | `--output sarif` | GitHub Code Scanning compatible |
+
+### Cross-Repo Workflow Steps
+
+1. **Profile** — Analyze project structure and dependencies
+2. **Analyze** — Run Apex Debug static analysis
+3. **Rank** — Prioritize findings by severity and confidence
+4. **Fix** — Apply safe auto-fixes via SelfHealingAgent
+5. **Verify** — Run tests to ensure no regressions
+6. **Report** — Generate HTML + markdown reports
+7. **Commit** — Stage changes and produce PR summary
+
+### Memory Compaction
+
+Both projects support memory compaction for long-running agents:
+
+- **Apex Orchestrator**: `.epistemic/memory.json` compacted by deduplicating claims/questions
+- **Apex Debug**: SQLite knowledge base `VACUUM` + duplicate removal
+
+Run compaction manually:
+
+```bash
+# Apex Orchestrator
+python scripts/compact_memory.py
+
+# Apex Debug
+python -c "import sqlite3; conn = sqlite3.connect('.apex-debug/knowledge.db'); conn.execute('VACUUM'); conn.close()"
+```

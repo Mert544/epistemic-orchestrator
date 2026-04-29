@@ -25,10 +25,11 @@ class PersistentMemoryStore:
 
     def hydrate_graph(self, graph) -> dict[str, Any]:
         state = self.load_state()
-        for claim in state.get("known_claims", []):
-            graph.load_memory_claim(claim)
-        for question in state.get("known_questions", []):
-            graph.load_memory_question(question)
+        if graph is not None:
+            for claim in state.get("known_claims", []):
+                graph.load_memory_claim(claim)
+            for question in state.get("known_questions", []):
+                graph.load_memory_question(question)
         return state
 
     def estimated_bytes(self) -> int:
