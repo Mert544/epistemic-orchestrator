@@ -25,9 +25,7 @@ def test_router_with_noop_provider():
 
 
 def test_llm_provider_base_class():
-    """Base provider class exists and has complete method."""
+    """Base provider class raises NotImplementedError as expected."""
     provider = LLMProvider({})
-    resp = provider.complete("test")
-    assert resp.content == ""
-    assert resp.input_tokens == 0
-    assert resp.output_tokens == 0
+    with pytest.raises(NotImplementedError):
+        provider.complete("test")
