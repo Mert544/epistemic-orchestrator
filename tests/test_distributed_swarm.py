@@ -53,20 +53,29 @@ def test_coordinator_no_online_nodes():
 class TestSwarmNodeServer:
     @pytest.fixture(scope="class")
     def swarm_server(self):
-        server = SwarmNodeServer("test-node", host="127.0.0.1", port=18767)
+        # Use port=0 to let OS assign a free port
+        server = SwarmNodeServer("test-node", host="127.0.0.1", port=0)
         server.register_task("echo", lambda p: {"received": p})
         import threading
         t = threading.Thread(target=server.start, daemon=True)
         t.start()
-        if not _wait_for_server("http://127.0.0.1:18767/health", timeout=5.0):
+        # Wait for server thread to bind the socket
+        for _ in range(50):
+            if server.actual_port != 0:
+                break
+            time.sleep(0.1)
+        actual_port = server.actual_port
+        url = f"http://127.0.0.1:{actual_port}/health"
+        if not _wait_for_server(url, timeout=5.0):
             pytest.fail("SwarmNodeServer did not start in time")
         yield server
         server.stop()
-        # Give the accept loop time to notice the close
-        time.sleep(0.2)
+        # Give the accept loop time to notice the close and OS to release port
+        time.sleep(0.3)
 
     def test_node_server_health(self, swarm_server):
-        req = urllib.request.Request("http://127.0.0.1:18767/health", method="GET")
+        port = swarm_server.actual_port
+        req = urllib.request.Request(f"http://127.0.0.1:{port}/health", method="GET")
         with urllib.request.urlopen(req, timeout=5) as resp:
             data = resp.read().decode("utf-8")
             import json
@@ -76,9 +85,10 @@ class TestSwarmNodeServer:
 
     def test_node_server_execute(self, swarm_server):
         import json
+        port = swarm_server.actual_port
         body = json.dumps({"task": "echo", "payload": {"x": 42}}).encode("utf-8")
         req = urllib.request.Request(
-            "http://127.0.0.1:18767/execute",
+            f"http://127.0.0.1:{port}/execute",
             data=body,
             headers={"Content-Type": "application/json"},
             method="POST",
@@ -90,9 +100,10 @@ class TestSwarmNodeServer:
 
     def test_node_server_unknown_task(self, swarm_server):
         import json
+        port = swarm_server.actual_port
         body = json.dumps({"task": "nope", "payload": {}}).encode("utf-8")
         req = urllib.request.Request(
-            "http://127.0.0.1:18767/execute",
+            f"http://127.0.0.1:{port}/execute",
             data=body,
             headers={"Content-Type": "application/json"},
             method="POST",
@@ -102,14 +113,16 @@ class TestSwarmNodeServer:
             assert "Unknown task" in data["error"]
 
     def test_distributed_run_e2e(self, swarm_server):
-        coord = DistributedSwarmCoordinator([SwarmNode("test-node", "127.0.0.1", 18767)])
+        port = swarm_server.actual_port
+        coord = DistributedSwarmCoordinator([SwarmNode("test-node", "127.0.0.1", port)])
         result = coord.run("echo", [{"x": 1}, {"x": 2}])
         assert result.nodes_completed == 2
         assert result.nodes_failed == 0
         assert len(result.aggregated_output["responses"]) == 2
 
     def test_distributed_run_with_aggregator(self, swarm_server):
-        coord = DistributedSwarmCoordinator([SwarmNode("test-node", "127.0.0.1", 18767)])
+        port = swarm_server.actual_port
+        coord = DistributedSwarmCoordinator([SwarmNode("test-node", "127.0.0.1", port)])
         result = coord.run(
             "echo",
             [{"x": 1}, {"x": 2}],
@@ -159,11 +172,16 @@ class TestCircuitBreaker:
 
 class TestSwarmNodeServerLifecycle:
     def test_server_start_stop(self):
-        server = SwarmNodeServer("lifecycle-node", host="127.0.0.1", port=18768)
+        server = SwarmNodeServer("lifecycle-node", host="127.0.0.1", port=0)
         import threading
         t = threading.Thread(target=server.start, daemon=True)
         t.start()
-        assert _wait_for_server("http://127.0.0.1:18768/health", timeout=3.0)
+        for _ in range(50):
+            if server.actual_port != 0:
+                break
+            time.sleep(0.1)
+        actual_port = server.actual_port
+        assert _wait_for_server(f"http://127.0.0.1:{actual_port}/health", timeout=3.0)
         server.stop()
-        time.sleep(0.2)
-        assert not _wait_for_server("http://127.0.0.1:18768/health", timeout=0.5)
+        time.sleep(0.3)
+        assert not _wait_for_server(f"http://127.0.0.1:{actual_port}/health", timeout=0.5)

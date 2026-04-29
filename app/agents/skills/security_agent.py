@@ -83,11 +83,11 @@ class SecurityAgent(Agent):
         }
 
     def _discover_files(self, root: Path) -> list[str]:
-        skipped = {"examples", "tests", "test", "validation", "__pycache__", ".git", ".apex", ".epistemic"}
+        skipped = {"tests", "test", "validation", "__pycache__", ".git", ".apex", ".epistemic"}
         return [
             str(p.relative_to(root).as_posix())
             for p in root.rglob("*.py")
-            if not any(part in skipped for part in p.parts)
+            if not any(part in skipped for part in p.relative_to(root).parts)
         ]
 
     def _scan_ast(self, rel_path: str, source: str) -> list[dict[str, Any]]:

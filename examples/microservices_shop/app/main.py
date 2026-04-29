@@ -1,9 +1,14 @@
+from __future__ import annotations
+
+from typing import Any
+
 from app.services import OrderService, InventoryClient, NotificationService
 
 app_name = "microservices-shop"
 
 
 def main() -> dict[str, Any]:
+    """Run the main microservices shop workflow."""
     order_svc = OrderService()
     inventory = InventoryClient()
     notifier = NotificationService()

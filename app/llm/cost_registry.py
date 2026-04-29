@@ -87,7 +87,7 @@ class CostAwareRouter:
         self._session_tokens_out: int = 0
 
     def _get_or_create_provider(self, model_name: str) -> Any:
-        from app.llm.router import LLMRouter, NoOpProvider, OpenAICompatibleProvider, LocalProvider
+        from app.llm.router import NoOpProvider
 
         if model_name in self._providers:
             return self._providers[model_name]
@@ -99,10 +99,9 @@ class CostAwareRouter:
         provider_name = model_cfg.get("provider", "none")
         if provider_name == "none":
             provider = NoOpProvider(model_cfg)
-        elif provider_name == "local":
-            provider = LocalProvider(model_cfg)
         else:
-            provider = OpenAICompatibleProvider(model_cfg)
+            # All external providers removed; fallback to NoOp
+            provider = NoOpProvider(model_cfg)
 
         self._providers[model_name] = provider
         return provider

@@ -446,8 +446,80 @@ Apex Architecture (Brain-Hands-Limbs)
 - `app/runtime/git_adapter.py` — push, tag, remote_add, remote_list, stash
 - `CHECKPOINT.md` — this update
 
+## COMPLETED: LLM Fallback in Semantic Patch Generator
+
+- **LLM Fallback Generator** (`app/execution/semantic/generators/llm_fallback.py`)
+  - Called when AST transforms don't apply to a target file
+  - Builds prompt from file context + strategy + task title
+  - Returns `SemanticPatchResult` with `expected_old_content` set for safety
+  - Strips markdown fences from LLM output
+  - Graceful degradation on LLM errors (returns None → draft fallback)
+
+- **SemanticPatchGenerator Integration**
+  - Accepts optional `llm_router` in `__init__`
+  - After AST transform failure, tries LLM fallback per file before draft mode
+  - Transform type prefixed: `llm_{strategy}` (e.g., `llm_add_docstring`)
+
+- **Mock LLM Server** (`scripts/mock_llm_server.py`)
+  - Local OpenAI-compatible HTTP server for testing without API keys
+  - Context-manager friendly for test fixtures
+  - Returns heuristic responses based on prompt keywords
+
+- **DeepSeek Provider Tests** (`tests/test_deepseek_provider.py`)
+  - 7 tests: defaults, custom model/base_url, complete response, message passing, router registration
+
+- **LLM Fallback Tests** (`tests/test_semantic_llm_fallback.py`)
+  - 6 tests: generates patch, skips when no LLM, SKIP response, exception handling, fence stripping, AST priority
+
+- **Demo Script** (`scripts/demo_llm_difference.py`)
+  - Side-by-side comparison: NoOp vs LLM-assisted
+  - Shows concrete difference in output quality
+
+---
+
+## COMPLETED: Distributed Swarm Stability Fix
+
+- **Dynamic Port Allocation** (`app/engine/distributed_swarm.py`)
+  - `SwarmNodeServer` supports `port=0` for OS-assigned free ports
+  - `actual_port` property exposes bound port
+  - Added `SO_LINGER`, `shutdown(SHUT_RDWR)` for clean socket close
+  - `OSError` break in accept loop prevents hang on stop
+
+- **Test Fixes** (`tests/test_distributed_swarm.py`)
+  - All hardcoded ports replaced with `port=0` + `actual_port`
+  - Race condition fixed: retry loop waits for socket bind before health check
+  - 13/13 tests passing, suite no longer hangs
+
+## COMPLETED: LLM-Enhanced Agents
+
+---
+
+## REMOVED: External LLM Integration
+
+- **Reason**: External API dependencies (OpenAI, DeepSeek, OpenRouter) proved unreliable for consistent operation
+- **Result**: Zero mandatory external dependencies restored — all core features work with stdlib only
+
+### Files Removed
+- `app/execution/semantic/generators/llm_fallback.py`
+- `tests/test_deepseek_provider.py`
+- `tests/test_openrouter_provider.py`
+- `tests/test_semantic_llm_fallback.py`
+- `tests/test_llm_enhanced_agents.py`
+- `scripts/test_deepseek_real.py`
+- `scripts/test_openrouter_live.py`
+- `scripts/mock_llm_server.py`
+- `scripts/demo_llm_difference.py`
+
+### Files Reverted
+- `app/llm/router.py` — Only `NoOpProvider` remains (returns empty response)
+- `app/llm/cost_registry.py` — External provider imports removed, falls back to `NoOpProvider`
+- `app/execution/semantic_patch_generator.py` — LLM fallback logic removed
+- `app/agents/skills/docstring_agent.py` — Placeholder docstrings only
+- `app/agents/skills/security_agent.py` — AST-based detection only, no LLM enrichment
+
+---
+
 ## Test Summary
-- **78 new tests** added across 6 areas (this session)
-- **All passing** (78/78) ✅
-- **Regression check**: 70 existing tests passing ✅
-- **Total collected**: 711 tests in suite ✅
+- **89 core tests passing** (semantic patch, LLM router noop, cost registry, distributed swarm, mode policy, safety gates, agents)
+- **Zero external API dependencies** ✅
+- **Total collected**: 756 tests in suite ✅

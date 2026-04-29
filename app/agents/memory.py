@@ -9,7 +9,9 @@ Agents remember past evaluations and use them to:
 """
 
 import hashlib
+import importlib
 import json
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -55,7 +57,7 @@ class AgentMemory:
                         Vote(
                             agent_name=v["agent_name"],
                             agent_role=v["agent_role"],
-                            verdict=getattr(__import__("app.agents.consensus", fromlist=["Verdict"]).Verdict, v["verdict"]),
+                            verdict=getattr(importlib.import_module("app.agents.consensus").Verdict, v["verdict"]),
                             confidence=v["confidence"],
                             reasoning=v["reasoning"],
                             weight=v.get("weight", 1.0),
@@ -117,7 +119,7 @@ class AgentMemory:
                 claim_preview=claim[:200],
                 votes=votes,
                 final_verdict=final_verdict,
-                timestamp=__import__("time").time(),
+                timestamp=time.time(),
             )
         self._update_pattern_confidence(claim, votes)
         self._save()

@@ -259,13 +259,25 @@ class SwarmNodeServer:
             f"{body}"
         )
 
+    @property
+    def actual_port(self) -> int:
+        """Return the actual bound port (useful when port=0 was passed)."""
+        if self.server:
+            return self.server.getsockname()[1]
+        return self.port
+
     def start(self) -> None:
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            self.server.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, b"\x00" * 8)
+        except (OSError, AttributeError):
+            pass
         self.server.bind((self.host, self.port))
         self.server.listen(5)
         self._running = True
-        print(f"SwarmNodeServer {self.node_id} listening on {self.host}:{self.port}")
+        bound_port = self.actual_port
+        print(f"SwarmNodeServer {self.node_id} listening on {self.host}:{bound_port}")
 
         while self._running:
             try:
@@ -274,10 +286,18 @@ class SwarmNodeServer:
                 threading.Thread(target=self._handle_request, args=(conn,), daemon=True).start()
             except socket.timeout:
                 continue
+            except OSError:
+                # Socket closed by stop()
+                break
             except Exception:
                 break
 
     def stop(self) -> None:
         self._running = False
         if self.server:
+            try:
+                self.server.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
             self.server.close()
+            self.server = None
