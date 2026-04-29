@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+import io
 import os
+import sys
 from pathlib import Path
+
+# Fix Windows console encoding for emoji/unicode output
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 from app.agents.skills import (
     SecurityAgent,
@@ -222,7 +229,7 @@ def main() -> None:
     for key, conf in report.confidence_map.items():
         findings.append({"claim": key, "confidence": conf, "branch": ""})
     memory_bridge.record_run(run_id, claims=findings)
-    checkpoint.record_run(run_id, report)
+    checkpoint.save_checkpoint(run_id, mode=policy.mode.value, goal=objective, stats={"claims": claims_count, "duration": duration})
 
     # Record metrics
     patches_applied_val = getattr(report, "patches_applied", 0)

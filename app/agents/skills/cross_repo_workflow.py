@@ -46,6 +46,7 @@ class CrossRepoWorkflow:
         fix: bool = False,
         test: bool = False,
         output_format: str = "html",
+        exclude: Optional[set[str]] = None,
     ) -> WorkflowResult:
         """Run the complete workflow.
 
@@ -68,7 +69,8 @@ class CrossRepoWorkflow:
         try:
             from app.agents.skills.apex_debug_agent import ApexDebugAgent
             agent = ApexDebugAgent(self.project_root, min_severity=min_severity)
-            findings = agent.analyze(output_format=output_format)
+            result = agent.run(exclude=exclude)
+            findings = result.findings
         except Exception as e:
             errors.append(f"Analysis failed: {e}")
             return WorkflowResult(success=False, errors=errors)

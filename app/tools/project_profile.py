@@ -68,7 +68,7 @@ class ProjectProfiler:
         ext_counter: Counter[str] = Counter()
         dir_counter: Counter[str] = Counter()
 
-        skipped_dirs = {".git", "__pycache__", ".apex", ".epistemic", "node_modules", ".venv", "venv"}
+        skipped_dirs = {".git", "__pycache__", ".apex", ".epistemic", "node_modules", ".venv", "venv", "dist", "build", ".turbo", ".next"}
         scanned = 0
         for path in self.root.rglob("*"):
             if scanned >= self.max_files:
