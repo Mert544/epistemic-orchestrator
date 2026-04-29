@@ -1,9 +1,7 @@
 name: failure-triage
 
 on:
-  workflow_run:
-    workflows: ["automation-e2e"]
-    types: [completed]
+  # Only run manually to avoid notification spam from automation-e2e failures
   workflow_dispatch:
 
 env:
